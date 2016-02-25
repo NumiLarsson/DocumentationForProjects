@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0177)https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	<link rel="stylesheet" type="text/css" href="contentStyle.do">
+
+	<title>Optional programming assignment (Binary search tree)</title>
+	
+<style type="text/css"></style></head>
+<body>
+<h1 style="text-align: center;">Binary search tree</h1>
+<p style="text-align: center;">Operating systems - spring 2016</p>
+<p style="text-align: center;">Problem set 2</p>
+<p style="text-align: center;"><img src="node(1).do"></p>
+<p style="text-align: center;">An optional programming assignment with a little less guidance</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">In this optional programming assignment&nbsp;you will further familiarize yourself with threads and thread synchronization. You are to program a binary search tree which allows safe removals from threads running in parallel.</p>
+<h2 style="text-align: justify;">Binary Search Tree (BST)<sup><brex></brex></sup></h2>
+<p style="text-align: justify;">A Binary Search Tree<sup id="cite_ref-1" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_note-1">[1]</a></sup> is a&nbsp;node-based&nbsp;binary tree&nbsp;data structure&nbsp;which has the following properties:</p>
+<ul style="text-align: justify;">
+<li>The left&nbsp;subtree&nbsp;of a node contains only nodes with keys less than the node's key.</li>
+<li>The right subtree of a node contains only nodes with keys greater than the node's key.</li>
+<li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
+<p style="text-align: justify;">The major advantage of binary search trees over other data structures is that the related&nbsp;sorting algorithms&nbsp;and&nbsp;search algorithms&nbsp;such as&nbsp;in-order traversal&nbsp;can be very efficient.</p>
+<h2 style="text-align: justify;">Thread safe data structures</h2>
+<p style="text-align: justify;"><b>Thread safety<sup id="cite_ref-2" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_note-2">[2]</a></sup></b>&nbsp;is a&nbsp;computer programming&nbsp;concept applicable in the context of&nbsp;multi-threaded&nbsp;programs. A piece of code is&nbsp;<b>thread-safe</b>&nbsp;if it only manipulates shared data structures in a manner that guarantees safe execution by multiple threads at the same time.&nbsp;</p>
+<p style="text-align: justify;">A key challenge in multi-threaded programming, thread safety was not a concern for most application developers until the 1990s when operating systems began to expose multiple threads for code execution. Today, a program may execute code on several threads simultaneously in a shared&nbsp;address space&nbsp;where each of those threads have access to virtually all of the&nbsp;memory&nbsp;of every other thread. Thus the flow of control and the sequence of accesses to data often have little relation to what would be reasonably expected by looking at the text of the program, violating the&nbsp;principle of least astonishment.&nbsp;Thread safety is a property that allows code to run in multi-threaded environments by re-establishing some of the correspondences between the actual flow of control and the text of the program, by means of&nbsp;synchronization.</p>
+<p style="text-align: justify;">As an example we can think of a binary search tree which we would like to use in a concurrent setting, i.e., multiple tasks are able to invoke the function “remove_node” concurrently. In&nbsp;this context, we are interested in linearisable behaviour of the data structure:</p>
+<p>If two tasks A and B are executing “remove_node” at the same time:</p>
+<p>&nbsp;</p>
+<table rules="cols" summary="" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;">A:</td>
+<td style="text-align: center;">&nbsp;B:</td>
+</tr>
+<tr>
+<td><code>remove_node(n1)</code></td>
+<td><code>remove_node(n2)</code></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>, the overall result shall be the same as if the function invocations had happened sequentially:</p>
+<ul>
+<li><code>remove_node(n1); remove_node(n2);</code></li>
+</ul>
+<p>or:</p>
+<ul>
+<li><code>remove_node(n2); remove_node(n1);</code></li>
+</ul>
+<p>In particular, afterwards both <code>n1</code> and <code>n2</code> should not be in the binary search tree.</p>
+<h2>Step 0: Get the source</h2>
+<p>You are provided with a&nbsp;<b>tarball</b>&nbsp;with&nbsp;<b>skeleton code&nbsp;</b>and a&nbsp;<b>Makefile</b>. The skeleton code implements a BST which can be safely used only in a single threaded setting. Your assignment is to extend the tree with two thread-safe functions that remove a node from the BST. Multiple threads should be able to invoke these functions concurrently to remove nodes and &nbsp;the overall result should be the same as if all these function invocations had happened sequentially.</p>
+<p>Download the following tarball:</p>
+<blockquote>
+<blockquote>
+<ul>
+<li><a href="https://pingpong.uu.se/courseId/9133/node.do?id=35427212" class="pplink" target="_top"><span class="nodeLink">bst-vt15.tar.gz</span></a></li>
+</ul>
+</blockquote>
+</blockquote>
+<p>Extract the tarball:</p>
+<pre class="shell">$&gt; tar xvfz bst-vt13.tar.gz</pre>
+<p>Now you should have a new directory name <code>bst</code>. Change the current working directory to the <code>bst</code> directory:</p>
+<pre class="shell">$&gt; cd bst</pre>
+<p>Use the <code>ls</code> command to see the content of the <code>bst</code> directory:</p>
+<pre class="shell">$&gt; ls<br>bst.c&nbsp;&nbsp; bst.h&nbsp;&nbsp; bst_test.c&nbsp;&nbsp;&nbsp; Makefile</pre>
+<h2 style="text-align: justify;">Step 1: First test run</h2>
+<p style="text-align: justify;">You can start by looking at the <code>bst.h</code> header file, it contains the type definition for the node type (struct&nbsp;<code>bst_node</code>). It also contains the definitions of the basic functions we have implemented for the tree. The implementation of these functions is in the source&nbsp;file <code>bst.c</code>.</p>
+<h3 style="text-align: justify;">Compile</h3>
+<p style="text-align: justify;">You can now use the <code>make</code> command to compile.</p>
+<pre class="shell">$&gt; make<br>gcc -c -pthread -Wall -Wextra -std=c99 -D_XOPEN_SOURCE=600 -g bst_test.c -o bst_test.o<br>gcc -MM -pthread -Wall -Wextra -std=c99 -D_XOPEN_SOURCE=600 -g bst_test.c &gt; bst_test.d<br>gcc -c -pthread -Wall -Wextra -std=c99 -D_XOPEN_SOURCE=600 -g bst.c -o bst.o<br>bst.c: In function ‘node_delete_ts_cg’:<br>bst.c:126:37: warning: unused parameter ‘root’ [-Wunused-parameter]<br>bst.c:126:54: warning: unused parameter ‘compare’ [-Wunused-parameter]<br>bst.c:126:69: warning: unused parameter ‘data’ [-Wunused-parameter]<br>bst.c: In function ‘node_delete_ts_fg’:<br>bst.c:149:37: warning: unused parameter ‘root’ [-Wunused-parameter]<br>bst.c:149:54: warning: unused parameter ‘compare’ [-Wunused-parameter]<br>bst.c:149:69: warning: unused parameter ‘data’ [-Wunused-parameter]<br>gcc -MM -pthread -Wall -Wextra -std=c99 -D_XOPEN_SOURCE=600 -g bst.c &gt; bst.d<br>gcc -c -pthread -Wall -Wextra -std=c99 -D_XOPEN_SOURCE=600 -g timing.c -o timing.o<br>gcc -MM -pthread -Wall -Wextra -std=c99 -D_XOPEN_SOURCE=600 -g timing.c &gt; timing.d<br>gcc -pthread -lrt -g bst_test.o bst.o timing.o -o bst_test</pre>
+<h3>Run the&nbsp;tests</h3>
+<p>Run the tests implemented in the file <code>bst_test.c</code>. Three different functions are executed to perform sanity checks and profile the BST implementation. In the first function the BST is used in a single threaded context and in the other two four threads are used to remove nodes concurrently from the tree.</p>
+<pre class="shell">$&gt; ./bst_test<br>Single threaded run: <br>Statistics:<br> Thread 0: 6.4416 sec (6.2097e+05 iterations/s)<br> Throughput (iterations/second): 6.2097e+05<br>Multi threaded run (Coarse-grained locking): Failed!<br>Multi threaded run (Fine-grained locking): Failed!</pre>
+<div class="important">Expect the two latter test cases to fail before you implement them. In all three functions we measure and report the time it takes to remove a certain number of nodes from the binary search tree.&nbsp;</div>
+<p>&nbsp;For every step, invoking the command make should be enough to compile your code.</p>
+<p><b>NOTE:</b>&nbsp;Comments for the parts you have to write code for will have the prefix&nbsp;<code><b>TODO:</b></code>&nbsp;followed by a description of the functionality that you need to implement.</p>
+<p><strong>NOTE: </strong>You might need to reduce the number of iterations performed in each test. If the <code>bst_test</code> fails repeatedly with the error message <code>Out of memory!</code> try to set the <code>thread_iterations</code> variable in <code>bst_test.c</code> to a smaller value.</p>
+<h2>Step 2: Coarse grained locking</h2>
+<p>A simple solution to achieve thread-safety is to protect the search tree&nbsp;using a global lock. Each time the function&nbsp;<code>node_delete</code>&nbsp;is invoked it should acquire the lock and release it only when it returns.</p>
+<p>Implement this coarse grained solution using pthread mutexes<sup id="cite_ref-3" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_note-3">[3]</a></sup> or pthread spinlocks<sup id="cite_ref-5" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_note-5">[5]</a></sup> in the function <em><code>node_delete_ts_cg</code>.</em></p>
+<p>Run the <code>bst_test</code> &nbsp;binary to test and profile your solution. Make sure you pass the first mutli-threaded test. Look at the reported running times. Ideally we would like the running time to be four times lower since we split the work to four threads. Does your implementation perform as expected?</p>
+<p><strong>NOTE: </strong>If you choose to use spinlocks your implementation will run faster. Is that expected? What is the trade-off involved?</p>
+<h2>Step 3: Fine grained locking</h2>
+<p>A better approach would to be to lock only the parts of the binary tree that allow a safe removal. That way threads that try to remove nodes from different subtrees would work independently and in parallel allowing for a much better performance. There are many ways to do that. Try to implement such a solution trying to lock as small parts of the tree as possible in the function <code>node_delete_ts_fg</code>.</p>
+<p>Run the bst_test &nbsp;binary to test and profile your solution. Make sure you pass the second mutli-threaded test. Look at the reported running times.&nbsp;</p>
+<p><b>NOTE:</b>&nbsp;It might be hard to make the fine grained version run faster than the coarse grained, especially using only mutexes or spinlocks. We will mostly focus on the correctness of your algorithm and your attempt to extract as much concurrency&nbsp;as possible.</p>
+<h1>References</h1>
+<ol>
+<li id="cite_note-1"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_ref-1">^</a></b><a href="http://en.wikipedia.org/wiki/Binary_search_tree" style="line-height: 1.6;" target="_blank">Wikipedia Article: Binary Search Tree</a></li>
+<li id="cite_note-2"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_ref-2">^</a></b><a href="http://en.wikipedia.org/wiki/Thread_safety" target="_blank">Wikipedia Article: Thread Safety</a></li>
+<li id="cite_note-3"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_ref-3">^</a></b><a href="https://computing.llnl.gov/tutorials/pthreads/#Mutexes" style="line-height: 1.6;" target="_blank">Pthreads Manual: Mutexes</a></li>
+<li id="cite_note-4"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_ref-3">^</a></b><a href="http://en.wikipedia.org/wiki/Mutual_exclusion" style="line-height: 1.6;" target="_blank">Wikipedia Article: Mutual Exclusion</a></li>
+<li id="cite_note-5"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36410439/content/ad0bd659-1304-4584-93a7-740ccbacac32/a3c7b349-1d36-4f04-a015-7e516c835182.html#cite_ref-5">^</a></b><a href="http://docs.oracle.com/cd/E19963-01/html/821-1601/ggecq.html" style="line-height: 1.6;" target="_blank">Pthreads Manual: Spinlock</a></li>
+</ol>
+
+</body></html>

@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://pingpong.uu.se/courseId/9133/content.do?id=35426548 -->
+<html lang="sv"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="language" content="sv">
+	<meta name="description" content="Uppsala universitet">
+	<link rel="shortcut icon" href="https://pingpong.uu.se/pp/lookAndFeel/skins/uu/images/favicon.ico">
+
+	
+
+	
+	<title>
+		Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016
+		[PING PONG]
+	</title>
+	
+		<script type="text/javascript">
+			top.enableDoubleClickProtection = true;
+		</script>
+	
+	<script type="text/javascript" src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/script-core-min.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" media="screen, speech" href="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/tooltip.css">
+<link rel="stylesheet" type="text/css" media="screen, speech" href="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/images.jsp">
+<link rel="stylesheet" type="text/css" media="all" href="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/style.css">
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" media="screen, speech" href="/pp/lookAndFeel/standard/css/ie_fixes.css?release/16.2.4.0" />
+<![endif]--><!--[if IE 7]><style type="text/css" media="screen, speech">@import url("/pp/lookAndFeel/standard/css/IE7xFixes.css?release/16.2.4.0");</style>
+<![endif]--><!--[if lte IE 6]><style type="text/css" media="screen, speech">@import url("/pp/lookAndFeel/standard/css/IE6xFixes.css?release/16.2.4.0");</style>
+<![endif]--><link rel="stylesheet" type="text/css" media="print" href="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/print.css">
+
+	
+	<script type="text/javascript" src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/pim.js"></script>
+
+
+	<script type="text/javascript">
+		
+		
+		
+		
+
+		
+		
+		top.username = 'Anton Larsson';
+		top.userid = '169661_partitur';
+		
+		top.courseid = '9133';
+		
+
+		
+		var i18n = {
+			"doubleClick" : {
+				"message" : "Vänta…",
+				"cancelMessage" : "Avbryt"
+			}
+		};
+		
+		
+		i18n["general.button.ok"] = "OK";
+		i18n["general.button.cancel"] = "Avbryt";
+
+		
+		var courseId = 9133;
+		var helpPageUrl = '/help.do?pageId=';
+		var calendarUrl = '/courseId/9133/calendar.do';
+		var ppVersion = 'release/16.2.4.0';
+		var lang = 'sv';
+		
+		var atWidth = 1000;
+		var atHeight = 700;
+
+
+		if (top != self) top.location.href = self.location.href;
+		function focusOrComplain(win) { if (win) win.focus(); else alert('Ett popup-fönster kunde inte öppnas!\nKontrollera popup-blockeraren i din webbläsare.'); }
+	</script>
+
+	
+	
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+
+</head>
+
+<body onload="defaultOnLoad()" id="main-body-tag" class=" ">
+
+	
+
+	<div id="container" class="">
+
+		
+
+		<div id="container-header">
+			
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="headerOuter" class="clearfix">
+	<div id="header" class="clearfix">
+		<div id="logoAdjustment">
+			<div id="identification-area" class="logo">
+				<a href="https://pingpong.uu.se/startPage.do" title="Gå tillbaka till startsidan"><img alt="" id="logotype" src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/node.do" width="149" height="65"></a>
+
+				
+				
+			</div>
+		</div>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="header-shortcuts">
+	<ul>
+		
+			
+				
+					
+				
+				
+			
+			<li>
+				<a href="https://pingpong.uu.se/courseId/9133/pimListInbox.do" accesskey="p" class="icon icon-pim-offline" title="Olästa PIM">(0) Olästa PIM</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://pingpong.uu.se/courseId/9133/latestNews.do" accesskey="s" class="icon icon-latest-news-small" title="Senaste nytt">Senaste nytt</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://pingpong.uu.se/courseId/9133/contactList.do" accesskey="o" class="icon icon-contact-small" title="Kontakter online">(0) Kontakter online</a>
+			</li>
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+			<li>
+				<a href="https://pingpong.uu.se/pp/system/notepad/notepad.jsp?course_id=9133" onclick="openNotepad(); return false" class="icon icon-notes-small" title="Anteckningar">
+					Anteckningar
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://pingpong.uu.se/calendar.do?mode=start&amp;course_id=9133" onclick="openCalendar(); return false" class="icon icon-calendar-small" title="Kalender">
+					Kalender
+				</a>
+			</li>
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+			<li>
+				<a href="https://pingpong.uu.se/help.do?pageId=_course.lesson" onclick="openPageHelp(&#39;_course.lesson&#39;); return false" class="icon icon-help-small" title="Hjälp">
+					Hjälp
+				</a>
+			</li>
+		
+
+		
+		
+			
+				
+				
+					<li>
+						<a href="http://studentportalen.uu.se/" target="_blank" class="icon icon-shortcut-small" title="Studentportalen">
+							Studentportalen
+						</a>
+					</li>
+				
+			
+		
+	</ul>
+</div>
+		<div id="fullWidthNav">
+			<div id="nav" class="hover">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		<ul class="nav-top" id="nav-top-courses">
+			<li class="nav-top-item selected">
+				<div class="nav-top-item-link" tabindex="0">Aktiviteter</div>
+				<ul class="nav-sub nav-sub-long">
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/courseCatalog.do" class="nav-sub-item-link">Katalog</a></li>
+					
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/listCurrentCourses.do?clearsearch=true" class="nav-sub-item-link">Mina aktiviteter</a></li>
+					
+					
+					<li class="nav-sub-item nav-sub-text">
+						<p>
+							Senast besökta aktiviteter:
+						</p>
+					</li>
+						
+							
+								<li class="nav-sub-item">
+									<a href="https://pingpong.uu.se/courseId/9133/launchCourse.do?id=9133" target="_self" class="nav-sub-item-link" title="Operating systems - spring 2016"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/course_small.png" height="13" width="12" alt=""> Operating systems - spring 2016</a>
+								</li>
+							
+								<li class="nav-sub-item">
+									<a href="https://pingpong.uu.se/courseId/9133/launchCourse.do?id=9123" target="_self" class="nav-sub-item-link" title="Datajuridik och handelsrätt VT16"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/course_small.png" height="13" width="12" alt=""> Datajuridik och handelsrätt VT16</a>
+								</li>
+							
+								<li class="nav-sub-item">
+									<a href="https://pingpong.uu.se/courseId/9133/launchCourse.do?id=8498" target="_self" class="nav-sub-item-link" title="Introduktion till datorer HT14"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/course_small.png" height="13" width="12" alt=""> Introduktion till datorer HT14</a>
+								</li>
+							
+						
+					
+				</ul>
+			</li>
+		</ul>
+	
+
+	
+		<ul class="nav-top" id="nav-top-personal">
+			<li class="nav-top-item ">
+				<div class="nav-top-item-link" tabindex="0">Personligt</div>
+				<ul class="nav-sub">
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/personalMyDocuments.do" class="nav-sub-item-link">Dokument</a></li>
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/personalPortfolio.do" class="nav-sub-item-link">Portfolio</a></li>
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/personalObjectivesOverview.do" class="nav-sub-item-link">Mål &amp; Framsteg</a></li>
+					
+
+                    
+                    
+                    
+					
+					
+
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/studentLogOverview.do" class="nav-sub-item-link">Loggböcker</a></li>
+					
+					
+					
+					
+					
+
+					
+
+					
+
+					
+
+					
+				</ul>
+			</li>
+		</ul>
+	
+
+	
+		<ul class="nav-top" id="nav-top-communication">
+			<li class="nav-top-item ">
+				<div class="nav-top-item-link" tabindex="0">Kommunikation</div>
+
+				<ul class="nav-sub">
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/wall.do" class="nav-sub-item-link">Notisflöde</a></li>
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/pimListInbox.do" class="nav-sub-item-link">PIM</a></li>
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/latestNews.do" class="nav-sub-item-link">Senaste nytt</a></li>
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/entranceMessageList.do?mode=myCurrent" class="nav-sub-item-link">Information</a></li>
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/contactList.do" class="nav-sub-item-link">Kontaktlista</a></li>
+					
+					
+					
+				</ul>
+			</li>
+		</ul>
+	
+
+	
+				  
+	              
+		<ul class="nav-top" id="nav-top-tools">
+			<li class="nav-top-item ">
+				<div class="nav-top-item-link" tabindex="0">Verktyg</div>
+				<ul class="nav-sub">
+					
+					
+					
+					
+					
+					
+					
+					
+
+					
+
+					
+
+	                
+                    
+                    
+                    
+					
+					
+						<li class="nav-sub-item">
+						<a href="https://pingpong.uu.se/pp/system/notepad/notepad.jsp?course_id=9133" onclick="openNotepad(); return false" class="nav-sub-item-link">Anteckningar</a></li>
+					
+					
+					
+					
+					
+						<li class="nav-sub-item">
+							<a href="https://pingpong.uu.se/calendar.do?mode=start" onclick="openCalendar(false, true); return false" class="nav-sub-item-link">Kalender</a>
+						</li>
+					
+					
+						
+							
+							
+								
+							
+						
+						<li class="nav-sub-item">
+							<a href="https://pingpong.uu.se/invitations.do?mode=start" class="nav-sub-item-link">Inbjudningar</a>
+						</li>
+					
+					
+					
+					
+
+					
+					
+					
+
+
+					
+				</ul>
+			</li>
+		</ul>
+	
+
+	
+	
+		<ul class="nav-top" id="nav-top-support">
+			<li class="nav-top-item ">
+				<div class="nav-top-item-link" tabindex="0">Support</div>
+				<ul class="nav-sub">
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/help.do?pageId=_course.lesson" onclick="openPageHelp(&#39;_course.lesson&#39;); return false;" class="nav-sub-item-link new-window">Hjälp</a></li>
+					
+					
+						<li class="nav-sub-item">
+							
+								
+								
+									<a href="javascript:openGuide()" class="nav-sub-item-link">Guiden</a>
+								
+							
+						</li>
+					
+					
+					
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/supportContact.do" class="nav-sub-item-link">Kontakt</a></li>
+					
+					
+					
+					
+					
+						<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/supportAboutPP.do" class="nav-sub-item-link">Om PING PONG</a></li>
+					
+				</ul>
+			</li>
+		</ul>
+	
+
+	
+		
+	
+
+	
+
+
+	<ul class="nav-top" id="nav-top-logged-in">
+
+		<li class="nav-top-item ">
+
+			<div class="nav-top-item-link" tabindex="0">
+				<span class="name"><span class="dynamic-data">Anton Larsson</span></span>
+				<img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/viewUserImage.do" alt="Anton Larsson" width="45" height="65" class="user-image nav-top-user-image">
+			</div>
+			<ul class="nav-sub">
+
+				
+
+				
+				
+					<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/personalInformation.do" class="nav-sub-item-link">Personuppgifter</a></li>
+				
+				
+					<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/personalPreferences.do" class="nav-sub-item-link">Inställningar</a></li>
+				
+				
+
+				<li class="nav-sub-item"><a href="https://pingpong.uu.se/courseId/9133/logout.do" target="_top" id="logout-button" class="nav-sub-item-link">Logga ut</a></li>
+
+				
+
+				
+				
+			</ul>
+		</li>
+	</ul>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+		
+	
+	
+	
+
+
+
+	
+
+	<script type="text/javascript">
+	(function() {
+		'use strict';
+		var navItemLinkSelector = '.nav-top-item-link';
+		var navItemSelector = '.nav-top-item';
+		var activeClassName = 'active';
+		var msTouchEvents;
+
+		var KEY_TAB = 9,
+			KEY_ESC = 27,
+			KEY_LEFT = 37,
+			KEY_UP = 38,
+			KEY_RIGHT = 39,
+			KEY_DOWN = 40;
+
+		(function() {
+
+			var eventName = 'click', msTouchEvents = navigator.pointerEnabled;
+			if (msTouchEvents || "ontouchstart" in document.documentElement) {
+				eventName = 'touchstart';
+				var touchEndEventName = "touchend";
+				if (msTouchEvents) {
+					eventName = "MSPointerDown";
+					touchEndEventName = "MSPointerUp";
+				}
+
+				$$(navItemLinkSelector).invoke('observe', touchEndEventName, function(event) {
+					event.preventDefault();
+					event.stopPropagation();
+				});
+			}
+
+			Event.observe($(nav), 'keydown', navKeyHandler);
+			Event.observe(document.body, 'click', menuClickEventHandler);
+
+			$$(navItemLinkSelector).each(function(link){
+				link.observe('focus', menuFocusEventHandler);
+			});
+		})();
+
+		function navKeyHandler(event){
+			switch(event.keyCode) {
+				case KEY_ESC:
+					disableActiveMenus(event);
+				break;
+
+				case KEY_UP:
+				case KEY_DOWN:
+					handleUpAndDownKeys(event);
+				break;
+
+				case KEY_LEFT:
+				case KEY_RIGHT:
+					handleRightAndLeftKeys(event);
+				break;
+
+				case KEY_TAB:
+					disableActiveMenus(event);
+				break;
+			}
+		};
+
+		function disableActiveMenus(event) {
+			$$(navItemSelector).each(function(element) {
+				element.removeClassName(activeClassName);
+			});
+		};
+
+		function menuClickEventHandler(event){
+			if ($(nav).contains) {
+				if(!$(nav).contains(event.target)) {
+					disableActiveMenus(event);
+				}
+			}
+		}
+
+		function menuFocusEventHandler(event){
+			disableActiveMenus(event);
+			var target = document.activeElement;
+			target.up(navItemSelector).addClassName(activeClassName);
+		};
+
+		function handleRightAndLeftKeys(event) {
+			var activeTopMenuItem = document.activeElement.up('.nav-top');
+			var jumpTo;
+
+			if(event.keyCode===KEY_LEFT) {
+				if(!activeTopMenuItem) jumpTo = $$('.nav-top').last();
+				else jumpTo = activeTopMenuItem.previous('ul');
+			} else {
+				if(!activeTopMenuItem) jumpTo = $$('.nav-top').first();
+				else jumpTo = activeTopMenuItem.next('ul');
+			}
+			if(jumpTo) {
+				jumpTo.down(navItemLinkSelector).focus();
+			}
+		}
+
+		function handleUpAndDownKeys(event) {
+			Event.stop(event);
+			var keyCode = event.keyCode;
+
+			if(keyCode===KEY_UP || keyCode===KEY_DOWN) {
+				var jumpTo;
+
+				if(document.activeElement.hasClassName('nav-top-item-link')){
+					var topMenuItem = document.activeElement.up();
+					topMenuItem.removeClassName('selected');
+					jumpTo = topMenuItem.down('.nav-sub-item-link');
+
+				} else if(document.activeElement.hasClassName('nav-sub-item-link')) {
+					var li;
+					if(keyCode===KEY_UP) {
+						li = document.activeElement.up().previous();
+					} else {
+						li = document.activeElement.up().next();
+					}
+					if(li) jumpTo = li.down('.nav-sub-item-link');
+				}
+				if(jumpTo) {
+					jumpTo.focus();
+				}
+			}
+
+		}
+
+	}());
+	</script>
+
+
+<!--[if IE 8]>
+<script type="text/javascript">
+$$('#nav .nav-sub-item-link').each(function(link) {
+	link.style.width = '93%';
+	link.style.display = 'inline-block';
+	link.on('mouseover', function() {link.addClassName('hovered');});
+	link.on('mouseout', function() {link.removeClassName('hovered');});
+	link.on('focus', function() {link.addClassName('hovered');});
+	link.on('blur', function() {link.removeClassName('hovered');});
+});
+</script>
+<![endif]-->
+
+			</div>
+		</div>
+	</div>
+</div>
+			
+
+			
+
+
+			<div id="bread-crumbs" class="clearfix">
+				
+
+				
+					
+					<a href="https://pingpong.uu.se/courseId/9133/startPage.do" target="_top" class="bread-crumb-item">Startsida</a><span class="bread-crumb-separator">&gt;</span><a href="https://pingpong.uu.se/courseId/9133/listCurrentCourses.do" target="_top" class="bread-crumb-item">Mina aktiviteter</a><span class="bread-crumb-separator">&gt;</span><a href="https://pingpong.uu.se/courseId/9133/launchCourse.do" target="_top" class="bread-crumb-item" title="Översikt">Operating systems - spring 201...</a><span class="bread-crumb-separator">&gt;</span><span class="bread-crumb-item">Innehåll</span>
+				
+			</div>
+		</div>
+
+
+		<div id="container-inner">
+
+			<div id="body" class="clearfix">
+
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 class="page-content-header"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/course_large.png" alt="icon-course" aria-hidden="true"></span>
+	Operating systems - spring 2016
+</h1>
+
+
+				
+				
+					
+					<table id="rte-table">
+						<tbody><tr>
+							<td valign="top" class="course-left-column">
+				
+
+				
+				
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="left-column" id="course-menu">
+
+	
+		
+		
+
+			
+			
+			
+			
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="box" id="courseMainBox"><div class="box-header clearfix"><div class="box-header-inner"><div class="box-header-image"></div><h2><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/course_small(1).png" alt="icon-course-small" aria-hidden="true"></span>Aktivitet</h2></div></div><div class="box-body clearfix menu">
+	<ul class="a-block">
+		
+			
+				
+				
+					<li class="">
+						<a href="https://pingpong.uu.se/courseId/9133/courseLatestNews.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/latest_news_small.png" alt="icon-latest-news" aria-hidden="true"></span>Senaste nytt</a>
+					</li>
+				
+			
+			
+			
+			
+		
+			
+				
+				
+					<li class="">
+						<a href="https://pingpong.uu.se/courseId/9133/courseOverview.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/course_overview_small.png" alt="icon-course-overview" aria-hidden="true"></span>Översikt</a>
+					</li>
+				
+			
+			
+			
+			
+		
+			
+				
+				
+					<li class="">
+						<a href="https://pingpong.uu.se/courseId/9133/contentStart.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/lessons_small.png" alt="icon-lessons" aria-hidden="true"></span>Innehåll</a>
+					</li>
+				
+			
+			
+			
+				
+					</ul>
+					<div class="orient-separator orient">
+						
+							<div id="n-5-35426442-pos-2" class="treenode clearfix folder level-1"><div class="treeNodePrefix"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;nodeTreeToggleFolder=35952676" class="link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-folder-open.png" alt="icon-content-tree-folder-open" aria-hidden="true"></span></a></div><div class="treeNodeText"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426482" title="Overview (1DT096, OSPP)" data-icon-id="tree_folder_open">Overview (1DT096, OSPP)</a></div></div>
+<div id="n-5-35952676-pos-0" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426483" title="Welcome" data-icon-id="tree_file_html">Welcome</a></div></div>
+<div id="n-5-35952676-pos-1" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426485" title="Textbooks" data-icon-id="tree_file_html">Textbooks</a></div></div>
+<div id="n-5-35952676-pos-2" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35952775" title="Roadmap and activities (1DT096)" data-icon-id="tree_file_html">Roadmap and activities (1DT096)</a></div></div>
+<div id="n-5-35952676-pos-3" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35975336" title="Lecture slides (1DT096)" data-icon-id="tree_file_html">Lecture slides (1DT096)</a></div></div>
+<div id="n-5-35426442-pos-3" class="treenode clearfix  visited level-1"><div class="treeNodePrefix"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35952991" title="Structure and grading of a problem set" data-icon-id="tree_file_html">Structure and grading of a problem set</a></div></div>
+<div id="n-5-35426442-pos-4" class="treenode clearfix  visited level-1"><div class="treeNodePrefix"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=36213169" title="Supported platforms" data-icon-id="tree_file_html">Supported platforms</a></div></div>
+<div id="n-5-35426442-pos-5" class="treenode clearfix folder visited level-1"><div class="treeNodePrefix"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;nodeTreeToggleFolder=35427613" class="link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-folder.png" alt="icon-content-tree-folder" aria-hidden="true"></span></a></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35952336" title="C programming preparations" data-icon-id="tree_folder_closed">C programming preparations</a></div></div>
+<div id="n-5-35426442-pos-6" class="treenode clearfix folder visited level-1"><div class="treeNodePrefix"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;nodeTreeToggleFolder=35952165" class="link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-folder.png" alt="icon-content-tree-folder" aria-hidden="true"></span></a></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35450810" title="Problem set 0" data-icon-id="tree_folder_closed">Problem set 0</a></div></div>
+<div id="n-5-35426442-pos-7" class="treenode clearfix folder level-1"><div class="treeNodePrefix"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;nodeTreeToggleFolder=35740963" class="link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-folder.png" alt="icon-content-tree-folder" aria-hidden="true"></span></a></div><div class="treeNodeText"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426514" title="Problem set 1" data-icon-id="tree_folder_closed">Problem set 1</a></div></div>
+<div id="n-5-35426442-pos-8" class="treenode clearfix folder level-1"><div class="treeNodePrefix"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;nodeTreeToggleFolder=35952167" class="link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-folder-open.png" alt="icon-content-tree-folder-open" aria-hidden="true"></span></a></div><div class="treeNodeText"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426537" title="Problem set 2" data-icon-id="tree_folder_open">Problem set 2</a></div></div>
+<div id="n-5-35952167-pos-0" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35952795" title="Overview (problem set 2)" data-icon-id="tree_file_html">Overview (problem set 2)</a></div></div>
+<div id="n-5-35952167-pos-1" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426538" title="Concurrent programming with Pthreads" data-icon-id="tree_file_html">Concurrent programming with Pthreads</a></div></div>
+<div id="n-5-35952167-pos-2" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426540" title="Background reading (problem set 2)" data-icon-id="tree_file_html">Background reading (problem set 2)</a></div></div>
+<div id="n-5-35952167-pos-3" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426542" title="Questions (problem set 2)" data-icon-id="tree_file_html">Questions (problem set 2)</a></div></div>
+<div id="n-5-35952167-pos-5" class="treenode clearfix  visited level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426546" title="Programming assignment (Introduction to synchronisation)" data-icon-id="tree_file_html">Programming assignment (Introduction to synchronisation)</a></div></div>
+<div id="n-5-35952167-pos-6" class="treenode clearfix  visited treenode-selected level-2"><div class="treeNodePrefix"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/nill.png" alt=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon-content-tree-item.png" alt="icon-content-tree-item" aria-hidden="true"></span></div><div class="treeNodeText visited"><a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548" class="active" title="Optional programming assignment (Binary search tree)" data-icon-id="tree_file_html">Optional programming assignment (Binary search tree)</a></div></div>
+
+						
+						
+					</div>
+					<ul class="a-block">
+							
+			
+			
+		
+			
+				
+				
+					<li class="">
+						<a href="https://pingpong.uu.se/courseId/9133/courseDocsAndFiles.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/files_small.png" alt="icon-files" aria-hidden="true"></span>Dokument</a>
+					</li>
+				
+			
+			
+			
+			
+		
+			
+				
+				
+					<li class="">
+						<a href="https://pingpong.uu.se/courseId/9133/courseFAQList.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/question_small.png" alt="icon-faq" aria-hidden="true"></span>Vanliga frågor</a>
+					</li>
+				
+			
+			
+			
+			
+		
+	</ul>
+</div><div class="box-foot-image"></div></div>
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="box" id="courseCommunicationBox"><div class="box-header clearfix"><div class="box-header-inner"><div class="box-header-image"></div><h2><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/chat_small.png" alt="icon-chat-small" aria-hidden="true"></span>Kommunikation</h2></div></div><div class="box-body clearfix menu">
+		<ul class="a-block">
+			
+				
+					
+					
+						<li class="">
+							<a href="https://pingpong.uu.se/courseId/9133/courseParticipants.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/course_participants_small.png" alt="icon-course-participants" aria-hidden="true"></span>Medlemmar</a>
+						</li>
+					
+				
+			
+				
+					
+					
+						<li class="">
+							<a href="https://pingpong.uu.se/courseId/9133/listMessages.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/notice_board_small.png" alt="icon-notice-board" aria-hidden="true"></span>Anslagstavla</a>
+						</li>
+					
+				
+			
+				
+					
+					
+						<li class="">
+							<a href="https://pingpong.uu.se/courseId/9133/courseDiscussListForums.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/discuss_small.png" alt="icon-discuss" aria-hidden="true"></span>Diskutera</a>
+						</li>
+					
+				
+			
+				
+					
+					
+						<li class="">
+							<a href="https://pingpong.uu.se/courseId/9133/courseQuestionAskForm.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/question_small.png" alt="icon-question" aria-hidden="true"></span>Ställ/besvara frågor</a>
+						</li>
+					
+				
+			
+				
+					
+					
+						<li class="">
+							<a href="https://pingpong.uu.se/courseId/9133/projectGroupsList.do" onclick=""><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/projectgroup_small.png" alt="icon-projectgroup" aria-hidden="true"></span>Projektgrupper</a>
+						</li>
+					
+				
+			
+		</ul>
+	</div><div class="box-foot-image"></div></div>
+
+
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FIXME with courserights -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div style="text-align: center; margin-top: 1em;" class="courseLogo">
+				
+			</div>
+
+		
+	
+
+</div>
+
+
+
+
+					
+					
+				
+
+				
+
+				
+					
+					</td>
+					<td valign="top" class="course-right-column">
+				
+
+				
+				
+
+				
+				<div id="body-content">
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page-content">
+
+	
+
+	<script type="text/javascript">// <![CDATA[
+
+	// pp6 compatibility - see #11706
+	window.name = 'ppfmain';
+
+
+
+	function sendAssetSCORMdata(scormData) {
+		var url = '/courseId/9133/courseRTEScormAssetStore.do';
+		var params = {'current_item_id' : 35426548, 'scorm_data' : scormData, 'current_resource_type': 79};
+			new Ajax.Request(url, { parameters: params, asynchronous: false });
+	}
+	
+		
+		addStartupFunction(function() {
+		 	PP.enteredPageAt = new Date();
+		});
+	
+	
+		function exitPage() {
+			PP.exitedPage = new Date();
+			
+			var timedata = "";
+			if (PP.enteredPageAt) {
+				timedata = "__PP.startStopData=" + (PP.exitedPage.getTime() - PP.enteredPageAt.getTime());
+			}	
+			sendAssetSCORMdata(timedata);
+		}
+		
+	
+		if (window.onunload) PP.util.logMessage('NOTE! Previous onunload - I will overwrite it : ' + window.onunload);
+		window.onunload = exitPage;
+		
+		if ($('logout-button')) {
+			$('logout-button').observe('click', function() {
+				window.onunload = null;
+				exitPage();
+			});
+		}
+
+
+
+
+
+window.close = function() {
+	try {
+		console.log("window.close() not allowed. Caller:\n" + arguments.callee.caller);
+	} catch(e) {
+		console.log("window.close() not allowed. Could not find caller to trace");
+	}
+	// Most probably a SCORM-object that illegally calls top.close()
+	// Instead of closing we send the user to the next content page.
+	// If no "next" page exist we'll end up on the same page as we're
+	// already on. (RT#53483)
+	window.location.href="/servlets/services/contentnav?courseId=9133&itemId=36410438&next=true";
+}
+
+var iframeAnchorScrolling = (function () {
+
+  var anchorPattern = /^\s*#(\S+)\s*$/;
+
+  function doIframeAnchorLink(e) {
+		var link = e.target;
+		if ("a"!=link.nodeName.toLowerCase()) {return;}
+		var match = anchorPattern.exec(link.getAttribute("href"));
+		if (!match) {return;}
+		var id = match && match[1];
+		if (!id) {return;}
+		var target = link.ownerDocument.getElementById(id);
+		if (!target) {return;};
+		target.scrollIntoView(true);
+  }
+
+  return {
+    "setup": function (contentFrame) {
+     		var fdoc = contentFrame.contentDocument
+	 				, hasAEL = "function" == typeof fdoc.body.addEventListener
+	 				, hasSIV = "function" == typeof fdoc.body.scrollIntoView;
+	  		hasAEL && hasSIV && fdoc.addEventListener("click", doIframeAnchorLink, false);
+    	}
+  };
+}());
+
+function doOnload(iframe) {
+	
+	
+		PP.util.resizeFrame(iframe);
+		// Inject readspeaker code
+	
+	// Begin: ReadSpeaker
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// End: ReadSpeaker
+	
+	iframeAnchorScrolling.setup(iframe);
+}
+// ]]></script>
+
+	<div id="content-frame-wrapper" style="-webkit-overflow-scrolling: touch;" class="">
+		<div class="rte-nav clearfix">
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="rte-nav-links">
+	
+		
+		
+			
+			
+	
+
+	
+		<a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548#" class="default link-icon" onclick="printContent(); return false;"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/print.png" alt="icon-print" aria-hidden="true"></span><span class="align-right">Skriv ut</span></a>
+	
+</div>
+
+
+	
+		<a href="https://pingpong.uu.se/servlets/services/contentnav?courseId=9133&amp;itemId=36410438&amp;previous=true" class="default link-icon contentPrevLink">
+			<span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/previous.png" alt="icon-previous" aria-hidden="true"></span><span class="align-right">Föregående</span>
+		</a>&nbsp;
+	
+	
+		<a href="https://pingpong.uu.se/servlets/services/contentnav?courseId=9133&amp;itemId=36410438&amp;next=true" class="default link-icon contentNextLink">
+			<span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/next.png" alt="icon-next" aria-hidden="true"></span><span class="align-right">Nästa</span>
+		</a>
+		&nbsp;
+	
+
+
+
+
+
+
+	<a href="https://pingpong.uu.se/courseId/9133/courseSearch.do" class="default link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/search.png" alt="icon-search" aria-hidden="true"></span><span class="align-right">Sök</span></a>
+	&nbsp;
+
+
+
+
+	<script>
+		
+		PP.contentToggleMaximized = function(linkElement) {
+			var elm = $('content-frame-wrapper');
+			elm.toggleClassName('maximized');
+			var maximizedNow = elm.hasClassName('maximized');
+			$$('.maximizeLink, .minimizeLink').invoke('toggle');
+			document.body.style.overflow = maximizedNow ? 'hidden' : 'auto';
+			// Update server-side session state:
+			new Ajax.Request('/courseId/9133/content.do?id=35426548', {parameters : {'contentUseNormalLayout':!maximizedNow, 'noBody':'true'}});
+			return false;
+		}
+	</script>
+	<a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;contentUseNormalLayout=false" style="" class="default maximizeLink link-icon" onclick="return PP.contentToggleMaximized(this)"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/maximize.png" alt="icon-maximize-content" aria-hidden="true"></span><span class="align-right">Maximera innehållet</span></a>
+	<a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;contentUseNormalLayout=true" style="display:none" class="default minimizeLink link-icon" onclick="return PP.contentToggleMaximized(this)"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/minus.png" alt="icon-minimize-content" aria-hidden="true"></span><span class="align-right">Visa navigationen</span></a>
+	&nbsp;
+
+
+
+
+	
+    
+	
+		
+		<a href="javascript:showPdfDownload()" class="default link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/file_download.png" alt="icon-download-file" aria-hidden="true"></span><span class="align-right">Spara som pdf</span></a>
+		
+		<div id="show-pdf-download" style="display:none">
+			<p style="float: right">
+				<a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548#" onclick="hidePdfDownload(); return false"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon_close.gif" alt="x">
+				Stäng</a>
+			</p>
+			
+				
+				
+					<p>Du kan spara sidan som en pdf-fil. Observera att filmer och ljud inte sparas.</p>
+					<p>
+						<a href="https://pingpong.uu.se/courseId/9133/contentSaveToPdf.do?resourceId=36410439&amp;ts=1456421733332" class="default link-icon" onclick="hidePdfDownload(); return true"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/file_download.png" alt="icon-download-file" aria-hidden="true"></span><span class="align-right">Spara som pdf</span></a>
+					</p>
+					<p>
+						
+						<a href="javascript:downloadToDocs(&#39;/courseId/9133/contentSaveToPdf.do?resourceId=36410439&amp;destination=docs&amp;ts=1456421733332&#39;, &#39;img-content-save-to-pdf-docs&#39;)" class="default link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/file_download.png" id="img-content-save-to-pdf-docs" alt="icon-download-file" aria-hidden="true"></span><span class="align-right">Spara som pdf till Mina Dokument (i PING PONG)</span></a>
+					</p>
+				
+			
+		</div>
+		<script type="text/javascript">
+			function showPdfDownload() { new Effect.Appear("show-pdf-download"); }
+			function hidePdfDownload() { new Effect.Fade("show-pdf-download", { duration: 0.5 }); }
+			function showPdfLoading(id) {
+				$(id).removeClassName("icon-download-file");
+				$(id).src = '/pp/lookAndFeel/standard/icons/wait_small.gif';
+			}
+			function restorePdfLoading(id) {
+				$(id).addClassName("icon-download-file");
+				$(id).src = '/pp/lookAndFeel/standard/icons/file_download.png';
+			}
+			function downloadToDocs(url, imgId) {
+				if (imgId) showPdfLoading(imgId);
+				new Ajax.Request(url, {
+					method: "get",
+					onSuccess: function(transport) {
+						restorePdfLoading("img-content-save-to-pdf-docs");
+						hidePdfDownload();
+					},
+					onFailure: function() {
+						alert("Obs! Filen kunde inte sparas.");
+						restorePdfLoading("img-content-save-to-pdf-docs");
+						hidePdfDownload();
+					}
+				});
+			}
+		</script>
+	
+
+
+
+		</div>
+
+		<div id="confirm-message" class="hide"><div class="icon"></div><ul id="confirm-message-list"><li></li></ul><a href="javascript:resetConfirmMessages()" class="close">Stäng</a></div>
+		<div id="error-messages" class="hide"><div class="icon"></div><ul id="error-messages-list"><li></li></ul></div>
+
+		
+			
+			
+			
+				<iframe id="ppfdata" name="ppfdata" src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/a3c7b349-1d36-4f04-a015-7e516c835182.html" width="100%" height="600" style="border: none; height: 4106px;" frameborder="0" allowfullscreen="allowfullscreen" onload="doOnload(this)" scrolling="auto"></iframe>
+			
+		
+
+
+		<div class="rte-nav-bottom clearfix">
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="rte-nav-links">
+	
+		
+		
+			
+			
+	
+
+	
+		<a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548#" class="default link-icon" onclick="printContent(); return false;"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/print.png" alt="icon-print" aria-hidden="true"></span><span class="align-right">Skriv ut</span></a>
+	
+</div>
+
+
+	
+		<a href="https://pingpong.uu.se/servlets/services/contentnav?courseId=9133&amp;itemId=36410438&amp;previous=true" class="default link-icon contentPrevLink">
+			<span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/previous.png" alt="icon-previous" aria-hidden="true"></span><span class="align-right">Föregående</span>
+		</a>&nbsp;
+	
+	
+		<a href="https://pingpong.uu.se/servlets/services/contentnav?courseId=9133&amp;itemId=36410438&amp;next=true" class="default link-icon contentNextLink">
+			<span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/next.png" alt="icon-next" aria-hidden="true"></span><span class="align-right">Nästa</span>
+		</a>
+		&nbsp;
+	
+
+
+
+
+
+
+	<a href="https://pingpong.uu.se/courseId/9133/courseSearch.do" class="default link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/search.png" alt="icon-search" aria-hidden="true"></span><span class="align-right">Sök</span></a>
+	&nbsp;
+
+
+
+
+	<script>
+		
+		PP.contentToggleMaximized = function(linkElement) {
+			var elm = $('content-frame-wrapper');
+			elm.toggleClassName('maximized');
+			var maximizedNow = elm.hasClassName('maximized');
+			$$('.maximizeLink, .minimizeLink').invoke('toggle');
+			document.body.style.overflow = maximizedNow ? 'hidden' : 'auto';
+			// Update server-side session state:
+			new Ajax.Request('/courseId/9133/content.do?id=35426548', {parameters : {'contentUseNormalLayout':!maximizedNow, 'noBody':'true'}});
+			return false;
+		}
+	</script>
+	<a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;contentUseNormalLayout=false" style="" class="default maximizeLink link-icon" onclick="return PP.contentToggleMaximized(this)"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/maximize.png" alt="icon-maximize-content" aria-hidden="true"></span><span class="align-right">Maximera innehållet</span></a>
+	<a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548&amp;contentUseNormalLayout=true" style="display:none" class="default minimizeLink link-icon" onclick="return PP.contentToggleMaximized(this)"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/minus.png" alt="icon-minimize-content" aria-hidden="true"></span><span class="align-right">Visa navigationen</span></a>
+	&nbsp;
+
+
+
+
+	
+    
+	
+		
+		<a href="javascript:showPdfDownload()" class="default link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/file_download.png" alt="icon-download-file" aria-hidden="true"></span><span class="align-right">Spara som pdf</span></a>
+		
+		<div id="show-pdf-download" style="display:none">
+			<p style="float: right">
+				<a href="https://pingpong.uu.se/courseId/9133/content.do?id=35426548#" onclick="hidePdfDownload(); return false"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/icon_close.gif" alt="x">
+				Stäng</a>
+			</p>
+			
+				
+				
+					<p>Du kan spara sidan som en pdf-fil. Observera att filmer och ljud inte sparas.</p>
+					<p>
+						<a href="https://pingpong.uu.se/courseId/9133/contentSaveToPdf.do?resourceId=36410439&amp;ts=1456421733337" class="default link-icon" onclick="hidePdfDownload(); return true"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/file_download.png" alt="icon-download-file" aria-hidden="true"></span><span class="align-right">Spara som pdf</span></a>
+					</p>
+					<p>
+						
+						<a href="javascript:downloadToDocs(&#39;/courseId/9133/contentSaveToPdf.do?resourceId=36410439&amp;destination=docs&amp;ts=1456421733337&#39;, &#39;img-content-save-to-pdf-docs&#39;)" class="default link-icon"><span class="icon-new-old"><img src="./Optional programming assignment (Binary search tree) - Innehåll - Operating systems - spring 2016 [PING PONG]_files/file_download.png" id="img-content-save-to-pdf-docs" alt="icon-download-file" aria-hidden="true"></span><span class="align-right">Spara som pdf till Mina Dokument (i PING PONG)</span></a>
+					</p>
+				
+			
+		</div>
+		<script type="text/javascript">
+			function showPdfDownload() { new Effect.Appear("show-pdf-download"); }
+			function hidePdfDownload() { new Effect.Fade("show-pdf-download", { duration: 0.5 }); }
+			function showPdfLoading(id) {
+				$(id).removeClassName("icon-download-file");
+				$(id).src = '/pp/lookAndFeel/standard/icons/wait_small.gif';
+			}
+			function restorePdfLoading(id) {
+				$(id).addClassName("icon-download-file");
+				$(id).src = '/pp/lookAndFeel/standard/icons/file_download.png';
+			}
+			function downloadToDocs(url, imgId) {
+				if (imgId) showPdfLoading(imgId);
+				new Ajax.Request(url, {
+					method: "get",
+					onSuccess: function(transport) {
+						restorePdfLoading("img-content-save-to-pdf-docs");
+						hidePdfDownload();
+					},
+					onFailure: function() {
+						alert("Obs! Filen kunde inte sparas.");
+						restorePdfLoading("img-content-save-to-pdf-docs");
+						hidePdfDownload();
+					}
+				});
+			}
+		</script>
+	
+
+
+
+		</div>
+	</div>
+</div>
+
+						
+					
+				</div>
+
+				
+				
+
+				
+					
+							</td>
+						</tr>
+					</tbody></table>
+				
+			</div>
+
+		</div>
+
+	</div>
+	
+
+
+
+</body></html>

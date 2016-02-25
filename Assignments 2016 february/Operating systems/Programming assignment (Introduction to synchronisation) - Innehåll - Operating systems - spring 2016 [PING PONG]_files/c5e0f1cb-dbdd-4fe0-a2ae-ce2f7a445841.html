@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0177)https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	<link rel="stylesheet" type="text/css" href="contentStyle.do">
+
+<title>Untitled document</title>
+<style type="text/css"></style></head>
+<body>
+<h1 style="text-align: center;">Introduction to synchronization</h1>
+<p style="text-align: center;">Operating systems - spring 2016</p>
+<p style="text-align: center;">Problem set 2</p>
+<p style="text-align: center;">&nbsp;Mandatory Programming assignment with step by step instructions&nbsp;</p>
+<p style="text-align: left;">&nbsp;&nbsp;</p>
+<h2>Linux servers</h2>
+<p>For problem set 2 you <strong>will&nbsp;have</strong>&nbsp;to use the linux servers that the department recently deployed. For more information of how to access the new resources please refer to the&nbsp;&nbsp;section.&nbsp;</p>
+<div class="important">Please make sure before you contiunte&nbsp;that you are logged in to one of the Linux servers.</div>
+<h2>Preparations</h2>
+<p><b>*** NEW FILE ***</b></p>
+<p>You can download the new version of the tarball here: <a href="https://pingpong.uu.se/courseId/9133/node.do?id=36473908" class="pplink" target="_top"><span class="nodeLink">thread_sync_vt16.tar </span></a></p>
+<p><span class="nodeLink">The new version solves the problem of out-of-order producer/consumer printout for the "Bounded Buffer" problem.<br></span></p>
+<p>&nbsp;</p>
+<p><strong><span class="nodeLink">*** OLD FILE ***</span></strong></p>
+<p><b>File to use:</b> Download this tarball&nbsp;<a href="https://pingpong.uu.se/courseId/9133/node.do?id=35427223" class="pplink" target="_top"><span class="nodeLink">thread_sync_vt15.tar.gz</span></a></p>
+<p>&nbsp;</p>
+<p>Extract the tarball:</p>
+<pre class="shell">$&gt; tar -xvf thread_sync_vt16.tar</pre>
+<p>or</p>
+<pre class="shell">$&gt; tar xzvf thread_sync_vt15.tar.gz</pre>
+<p>&nbsp;</p>
+<p>This will create a new directory named <code>thread_sync</code>.&nbsp;Change the current working directory to this new directory.&nbsp;</p>
+<pre class="shell">$&gt; cd thread_sync</pre>
+<p>Verify that you got all the necessary files:</p>
+<pre class="shell">$&gt; ls<br>bounded_buffer.c Makefile rendezvous.c synchro.c timing.c timing.h<br>$&gt;</pre>
+<pre>                 </pre>
+<h2>Critical sections and mutual exclusion</h2>
+<p><b>File to use: </b><code>synchro.c</code>.</p>
+<p><b>Description:</b>&nbsp; In this program, a process creates a number of threads and waits for their termination. A shared variable which works as a counter is incremented by the first pool of threads and decremented by the second pool of threads.</p>
+<p><b>Desired behaviour:</b>&nbsp;When all threads are done executing the value of the shared counter should be 0 (the same as value it was initialized with). The total the number of times the threads increment the counter is equal to the number of times it is &nbsp;decremented (ex. 2 threads each decrements the accumulator 20 times by 5 and 5 threads increment the accumulator 20 times by 2).</p>
+<h3>Compile and run the program</h3>
+<p>In the terminan, type make synchro and press enter to compile the program:</p>
+<pre class="shell">$&gt; make synchro</pre>
+<p>Run the program:</p>
+<pre class="shell">$&gt; ./synchro</pre>
+<h3>Questions</h3>
+<p>Run the programs several times and study the skeleton source.</p>
+<ol>
+<li>Does the program work according to the specifications?</li>
+<li>Can you predict the output before execution? Why?</li>
+</ol>
+<h3>Ensure isolated access to the shared variable</h3>
+<p>We will use three different methods to ensure that accesses to the shared variable appear to the system to occur instantaneously<sup id="cite_ref-1" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_note-1">[1]</a></sup>.</p>
+<ol>
+<li>Add the needed synchronization&nbsp;in the functions <code>inc_mutex </code>and&nbsp;<em><code>dec_mutex</code>&nbsp;</em>to make the program execute according to the desired behaviour. You will make use of the mutex implementation of the pthreads library<sup id="cite_ref-2" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_note-2">[2]</a></sup> to ensure mutual exclusion <sup id="cite_ref-3" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_note-3">[3]</a></sup> when accessing the shared variable.</li>
+<li>Change the functions <code>inc_cas</code> and <code>dec_cas</code> to use compare and swap <sup id="cite_ref-4" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_note-4">[4]</a></sup> to make the program execute according to the desired behaviour. You will make use of the atomic built-ins of the GCC compiler <sup id="cite_ref-5" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_note-5">[5]</a></sup> to ensure that every access to the shared variable is atomic.</li>
+<li>Change the functions <code>inc_atomic</code> and <code>dec_atomic</code> to use atomic addition and subtraction to make the program execute according to the desired behaviour. You will make use of the atomic built-ins of the GCC compiler <sup id="cite_ref-6" class="reference"><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_note-5">[5]</a></sup> to ensure that every access to the shared variable is atomic.</li>
+<li>Observe the throughput of the three different approaches (operations per second).&nbsp;</li>
+</ol>
+<h3>References</h3>
+<ol>
+<li id="cite_note-1"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_ref-1">^</a></b><a href="http://en.wikipedia.org/wiki/Linearizability" style="line-height: 1.6;">Wikipedia Article: Linearizability</a></li>
+<li id="cite_note-2"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_ref-2">^</a></b><a href="https://computing.llnl.gov/tutorials/pthreads/#Mutexes" style="line-height: 1.6;">Pthreads Manual: Mutexes</a></li>
+<li id="cite_note-3"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_ref-3">^</a></b><a href="http://en.wikipedia.org/wiki/Mutual_exclusion" style="line-height: 1.6;">Wikipedia Article: Mutual Exclusion</a></li>
+<li id="cite_note-4"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_ref-4">^</a></b><a href="http://en.wikipedia.org/wiki/Compare-and-swap" style="line-height: 1.6;">Wikipedia Article: Compare and Swap</a></li>
+<li id="cite_note-5"><b><a href="https://pingpong.uu.se/pp/courses/course09133//published/1456357612687/resourceId/36473915/content/1558ed80-ce39-400b-8874-e06112d01369/c5e0f1cb-dbdd-4fe0-a2ae-ce2f7a445841.html#cite_ref-5">^</a></b><a href="http://gcc.gnu.org/onlinedocs/gcc-4.4.6/gcc/Atomic-Builtins.html" style="line-height: 1.6;">GCC Manual (version 4.4.6): Atomic Built-ins</a></li>
+</ol>
+<h2>Semaphores as a tool to synchronize threads</h2>
+<p><b>File to use:</b>&nbsp;<code>rendezvous.c</code></p>
+<p><b>Description:</b> In this program, a process creates 2 threads, and waits for their termination. Each thread process performs 5 iterations. In each iteration they print their iteration number and sleep for some random amount of time.</p>
+<h3>Compile and run the program</h3>
+<p>Use make to compile from the terminal.</p>
+<pre class="shell">$&gt; make rendezvous</pre>
+<p>Run the program:</p>
+<pre class="shell">$&gt; ./rendezvous</pre>
+<h3>Questions</h3>
+<p>Run the programs several times and study the skeleton source. Think about the following questions.</p>
+<ol>
+<li>Could you predict the output before execution? Why?</li>
+<li>Adjust the sleeping duration of one process (or both processes) to have a different output (ie. another interleaving of the processes’ traces). Could you predict this output? Why?</li>
+</ol>
+<h3>Rendez-vous</h3>
+<p><b>Desired behaviour: </b>We now want to make the 2 threads have a rendez-vous after each iteration. The 2 threads should perform their iterations in lockstep (both perform iteration 0, then both perform iteration 1, etc.).</p>
+<p><strong>Hint:</strong> Implement the desired behaviour using two semaphores.</p>
+<p>Use make to compile from the terminal.</p>
+<pre class="shell">$&gt; make rendezvous</pre>
+<p>Run the program:</p>
+<pre class="shell">$&gt; ./rendezvous</pre>
+<h3>Questions</h3>
+<p>Change the threads sleeping duration.</p>
+<ol>
+<li>Does the output change?&nbsp;</li>
+<li>What are the possible outputs?</li>
+</ol>
+<h2>The bounded buffer problem</h2>
+<p><b>Description:</b> Consider now the bounded buffer problem described in chapter 6.6.1 of the book. Assume 5 producers and 10 consumers, and a buffer of size 10 items. Each producer performs 20 iterations. Every iteration a producer writes an integer to the buffer. Each consumer performs 10 iterations. Every iteration, a consumer reads an integer from the buffer and then displays its own thread id followed by the integer read from the buffer. A more detailed description of the problem can be found in the Programming Project 6.37 of the book.</p>
+<p><strong>Learn more: </strong>You might find the following <a target="_blank" href="http://www.doc.ic.ac.uk/~jnm/book/book_applets/BoundedBuffer.html">animated simulation of an bounded buffer</a> useful.</p>
+<p>To implement the bounded buffer a finite size (array) in memory is shared by the processes/threads.</p>
+<ul>
+<li><span style="line-height: 1.6;">Producer threads “produce” an item and place the item in the buffer.</span></li>
+<li><span style="line-height: 1.6;">Consumer threads remove an item from the buffer and “consume” it.</span></li>
+</ul>
+<h3><strong>Why do we need synchronization?</strong></h3>
+<p>Together with the shared array information about the state of the buffer must also be shared.</p>
+<ul>
+<li><span style="line-height: 1.6;">Which parts of buffer are free? </span></li>
+<li><span style="line-height: 1.6;">Which parts of the buffer are filled?</span><strong style="line-height: 1.6;">&nbsp;</strong></li>
+</ul>
+<p>What can go wrong:</p>
+<ul>
+<li><span style="line-height: 1.6;">Producer doesn’t stop when no free spaces.</span></li>
+<li><span style="line-height: 1.6;">Consumer tries to consume an empty space.</span></li>
+<li><span style="line-height: 1.6;">Consumer tries to consume a space that is only half-filled by the producer.</span></li>
+<li><span style="line-height: 1.6;">Two producers try to produce into same space.</span></li>
+<li><span style="line-height: 1.6;">Two consumers try to consume the same space</span></li>
+<li><span style="line-height: 1.6;">And possibly more ...</span></li>
+</ul>
+<h3><span style="line-height: 1.6;">Data-race-free implementation of the bounded buffer</span></h3>
+<p><b>File to use:</b> <code>bounded_buffer.c</code></p>
+<p><strong>Implementation:</strong> The buffer is represented by a C struct. In this struct, there is an array of integers used as the buffers slots.&nbsp; To keep track of where to write and read&nbsp; to the buffer, two indices <code>next_in</code> and <code>next_out</code> are used.&nbsp;A mutex semaphore can be used to synchronize access to the buffer. To keep track of the number of empty and filled buffer slots you will use counting semaphores.</p>
+<div class="important"><strong>Data races:</strong>&nbsp;To help race conditions appear, make processes sleep for a random amount of time inside the critical section and also outside critical section (the threads produces or consumes the item while sleeping!).</div>
+<p>Use make to compile the program from the terminal.&nbsp;</p>
+<pre class="shell">$&gt; make bounded_buffer		</pre>
+<p>Run the program form the terminal.&nbsp;</p>
+<pre class="shell">$&gt; ./bounded_buffer</pre>
+<h3>Questions</h3>
+<ol>
+<li>Change the order of wait operations (on <code>mutex</code> and <code>fullBuffers</code> or <code>emptyBuffers</code>) to see what happens. Does deadlock or starvation appear?</li>
+<li>Put back the wait operations in the right order. Change the order of signal operations (on&nbsp;<code>mutex</code>&nbsp;and&nbsp;<code>fullBuffers</code>&nbsp;or&nbsp;<code>emptyBuffers</code>)&nbsp;&nbsp;to see what happens. Does deadlock appear or starvation?</li>
+</ol>
+
+</body></html>
