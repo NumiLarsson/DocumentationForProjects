@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)http://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141 -->
+<html lang="en" dir="ltr" class=" js js no-flexbox flexbox-legacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  
+<meta name="description" content="Creating a new project and setting up the basic game.">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up">
+    <link rel="alternate" hreflang="zh-hans" href="http://unity3d.com/cn/learn/tutorials/projects/roll-a-ball/set-up">
+    <link rel="alternate" hreflang="ja" href="http://unity3d.com/jp/learn/tutorials/projects/roll-a-ball/set-up">
+    <link rel="alternate" hreflang="ko" href="http://unity3d.com/kr/learn/tutorials/projects/roll-a-ball/set-up">
+    <link rel="alternate" hreflang="pt" href="http://unity3d.com/pt/learn/tutorials/projects/roll-a-ball/set-up">
+    <link rel="alternate" hreflang="ru" href="http://unity3d.com/ru/learn/tutorials/projects/roll-a-ball/set-up">
+    <link rel="alternate" hreflang="es" href="http://unity3d.com/es/learn/tutorials/projects/roll-a-ball/set-up">
+  <title>Unity - Setting up the Game</title>
+  <link rel="shortcut icon" href="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/favicon.ico">
+  <link rel="icon" type="image/png" href="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/favicon.png">
+  <style type="text/css"></style><link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon-precomposed" href="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/apple-touch-icon.png">
+  <meta name="msapplication-TileColor" content="#222c37">
+  <meta name="msapplication-TileImage" content="http://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/tileicon-144x144.png">
+  <meta property="og:image" content="https://unity3d.com/profiles/unity3d/themes/unity/images/assets/favicons/ogimg.jpg">
+    <link href="./Unity - Setting up the Game_files/css" rel="stylesheet" type="text/css">
+  
+  <link type="text/css" rel="stylesheet" href="./Unity - Setting up the Game_files/css_Di_UfB1ZIeGAxEFlM9MpL8nvyyK32z4S5spoTyd0rZE.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Unity - Setting up the Game_files/css_22SjsVu5DK1s8za-fAFipjgsAK5pKsTaJoYktWzl_4E.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Unity - Setting up the Game_files/css_2i1KR_almnYaQ2HAMtbGs1lF-40vyOqd3cdD6JsPZFI.css" media="all">
+
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="http://unity3d.com/sites/default/files/css/css_e6MO1s4XytV0IexLQOI3RAdfPN6hu0I1yuBLpUIXNI8.css" media="all" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Unity - Setting up the Game_files/css_RGRHLAKDVfi0XReq--ex38mtRqRYvl-jdNyi-CWh25Y.css" media="all">
+  <script async="" src="./Unity - Setting up the Game_files/async-ads.js"></script><script async="" src="./Unity - Setting up the Game_files/async-ads.js"></script><script type="text/javascript" async="" src="./Unity - Setting up the Game_files/elqCfg.min.js"></script><script type="text/javascript" async="" src="./Unity - Setting up the Game_files/"></script><script type="text/javascript" async="" src="./Unity - Setting up the Game_files/insight.min.js"></script><script src="./Unity - Setting up the Game_files/cb=gapi.loaded_1" async=""></script><script id="facebook-jssdk" src="./Unity - Setting up the Game_files/all.js"></script><script src="./Unity - Setting up the Game_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Unity - Setting up the Game_files/cse.js"></script><script type="text/javascript" async="" src="./Unity - Setting up the Game_files/cse.js"></script><script type="text/javascript" async="" src="./Unity - Setting up the Game_files/ga.js"></script><script async="" src="./Unity - Setting up the Game_files/gtm.js"></script><script type="text/javascript" id="www-widgetapi-script" src="./Unity - Setting up the Game_files/www-widgetapi.js" async=""></script><script type="text/javascript" src="./Unity - Setting up the Game_files/js_ytkgDLRBsU6jYxHi4RfdtZaFEahEpiGnRLeJa0vC-bI.js"></script>
+<script type="text/javascript" src="./Unity - Setting up the Game_files/iframe_api"></script>
+<script type="text/javascript" src="./Unity - Setting up the Game_files/js_LdJWgVPAbl8dmTu3qVUGmMduMt43iAvOhFvkXlmbd0g.js"></script>
+<script type="text/javascript" src="./Unity - Setting up the Game_files/js_ZDIdrEnyGSlnGT-pZh4A1QkeG_a7F8m1a_OBX_9DItI.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"unity","theme_token":"fY7AVT9q0TsITkgMN9vNJOlwWrrxkYCyUj-nIDhsysA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"https:\/\/www.youtube.com\/iframe_api":1,"profiles\/unity3d\/themes\/unity\/js\/define-jquery.js":1,"profiles\/unity3d\/themes\/unity\/js\/modernizr.min.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/jquery.cookie.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/jquery.easing.1.3.js":1,"profiles\/unity3d\/themes\/unity\/js\/core.js":1,"profiles\/unity3d\/themes\/unity\/js\/mobile-core.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/ckeditor-dialog.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/jquery.fancybox.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/jquery.background.slider.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/jquery.assets.js":1,"profiles\/unity3d\/themes\/unity\/js\/lib\/learn.tutorials.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/prism.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/prism.linenums.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/prism.unity.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/ZeroClipboard.min.js":1,"profiles\/unity3d\/themes\/unity\/js\/plugins\/gif.player.js":1},"css":{"profiles\/unity3d\/modules\/contrib\/date\/date_api\/date.css":1,"profiles\/unity3d\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/search\/search.css":1,"profiles\/unity3d\/modules\/contrib\/panels\/css\/panels.css":1,"profiles\/unity3d\/themes\/unity\/css\/core.css":1,"profiles\/unity3d\/themes\/unity\/css\/custom.css":1,"profiles\/unity3d\/themes\/unity\/css\/responsive-core.css":1,"profiles\/unity3d\/themes\/unity\/css\/print.css":1,"profiles\/unity3d\/themes\/unity\/css\/ie.css":1,"profiles\/unity3d\/themes\/unity\/css\/lib\/learn.css":1,"profiles\/unity3d\/themes\/unity\/css\/prism.css":1}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script type="text/javascript" src="/profiles/unity3d/themes/unity/js/plugins/html5shiv.min.js"></script><![endif]-->
+    <!-- Google Tag Manager (unity: unity3d.com) -->
+  <noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-N93PFG"
+  height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N93PFG');</script>
+  <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-2854981-1']);
+      _gaq.push(['_setDomainName', 'unity3d.com']);
+        _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+<script type="text/javascript" charset="utf-8" async="" src="./Unity - Setting up the Game_files/button.831500944bc3eb7ea5276ccdc3f71d2e.js"></script><script src="./Unity - Setting up the Game_files/jsapi" type="text/javascript"></script><script src="./Unity - Setting up the Game_files/jsapi" type="text/javascript"></script><link type="text/css" href="./Unity - Setting up the Game_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Unity - Setting up the Game_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Unity - Setting up the Game_files/default+en.I.js"></script><link type="text/css" href="./Unity - Setting up the Game_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Unity - Setting up the Game_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Unity - Setting up the Game_files/default+en.I.js"></script><style type="text/css">
+.gsc-control-cse {
+font-family: Arial, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Arial, sans-serif;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+border-color: #D9D9D9;
+}
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+border-color: #2F5BB7;
+background-color: #357AE8;
+background-image: none;
+filter: none;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-color: #CCCCCC;
+border-bottom-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #CCCCCC;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #5284BD;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #5284BD;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #5284BD;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #5284BD;
+}
+.gsc-cursor-page {
+color: #5284BD;
+}
+a.gsc-trailing-more-results:link {
+color: #5284BD;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #333333;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #009933;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #009933;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+color: #5284BD;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+color: #5284BD;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #F6F6F6;
+background-color: #F6F6F6;
+}
+.gsc-completion-title {
+color: #5284BD;
+}
+.gsc-completion-snippet {
+color: #333333;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #1155CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #333333;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #009933;
+}
+.gsc-input input.gsc-input {
+background: none repeat scroll 0% 0% white !important;
+}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gscsep_a{display:none}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gscsep_a{display:none}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+<body class="html not-front not-logged-in page-node page-node- page-node-2180 node-type-learn-lesson i18n-en context-learn fancy">
+  <div id="master-wrapper">
+        <div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div class="header-wrapper no-userinfo">
+    <div class="top-fill">
+  <div class="wrap">
+    <div class="fill"></div>
+  </div>
+</div>
+<nav class="top-nav">
+  <div class="wrap">
+    <div class="shard"></div>
+    <div class="logo"><a href="http://unity3d.com/"></a></div>
+    <ul class="main-menu"><li class="menu-357 first"><a href="http://unity3d.com/" title="">Home</a></li><li class="menu-363"><a href="http://unity3d.com/unity">Unity</a></li><li class="menu-2990"><a href="http://unity3d.com/services">Services</a></li><li class="menu-642"><a href="http://unity3d.com/showcase" title="">Made with Unity</a></li><li class="menu-398 active-trail"><a href="http://unity3d.com/learn" class="active-trail">Learn</a></li><li class="menu-367"><a href="http://unity3d.com/community">Community</a></li><li class="menu-366"><a href="http://unity3d.com/asset-store" title="">Asset Store</a></li><li class="menu-2984 last"><a href="http://unity3d.com/get-unity" title="">Get Unity</a></li></ul>    <div class="user-icon"></div>
+    <div class="search-icon"></div>
+    <div class="search-wrapper">
+      <script>var blank = 'http://unity3d.com/profiles/unity3d/themes/unity/images/assets/elements/blank.gif'; (function(){ var cx = '002645370080425984202:i_d7wpkpdzy'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script>
+      <div class="search-box"><div id="___gcse_0"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-en" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb50">×</span></a></div></td></tr></tbody></table></div><input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button"><input type="image" src="./Unity - Setting up the Game_files/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr style="display: none;"><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./Unity - Setting up the Game_files/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form></div></div></div>
+    </div>
+    <div class="user-wrapper">
+      <div class="content clear">
+                          <h2>Unity Account</h2>
+          <small class="bb mb15">You need a Unity Account to shop in the Online and Asset Stores, participate in the Unity Community and manage your license portfolio.</small>
+                      <a href="http://unity3d.com/user/login?return=learn/tutorials/projects/roll-a-ball/set-up" class="blue-btn sbtn mr10">Login</a>
+                    <a href="https://id.unity.com/account/new" class="gray-btn sbtn">Create account</a>
+              </div>
+    </div>
+  </div>
+</nav>
+<nav class="sub-nav">
+  <div class="wrap">
+    <div class="sub-fill"></div>
+    <ul class="secondary-menu"><li class="menu-791 active-trail first"><a href="http://unity3d.com/learn/tutorials" class="active-trail">Tutorials</a></li><li class="menu-399"><a href="http://unity3d.com/learn/documentation">Documentation</a></li><li class="menu-400"><a href="http://unity3d.com/learn/live-training">Live Training</a></li><li class="menu-743"><a href="http://unity3d.com/learn/resources" title="">Resources</a></li><li class="menu-478 last"><a href="http://unity3d.com/learn/premium-support" title="">Premium Support</a></li></ul>    <script> var submore = 'More'; </script>
+  </div>
+</nav>
+  </div>
+</header><nav class="mobile-menu">
+  <div class="wrap">
+    <div class="mobile-search">
+      <script>(function(){ var cx = '002645370080425984202:i_d7wpkpdzy'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script>
+      <div class="search-box"><div id="___gcse_1"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-en" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id2"><table cellspacing="0" cellpadding="0" id="gs_id51" class="gstl_51 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti51" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id2" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st51" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb51">×</span></a></div></td></tr></tbody></table></div><input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button"><input type="image" src="./Unity - Setting up the Game_files/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr style="display: none;"><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./Unity - Setting up the Game_files/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form></div></div></div>
+    </div>
+    <div class="menu">
+      <h2>Navigation</h2>
+              <ul>
+                              <li><a href="http://unity3d.com/">Home</a></li>
+                                        <li><a href="http://unity3d.com/unity">Unity</a></li>
+                                        <li><a href="http://unity3d.com/services">Services</a></li>
+                                        <li><a href="http://unity3d.com/showcase">Made with Unity</a></li>
+                                        <li>
+              <a href="http://unity3d.com/learn" class="active-trail">Learn</a>
+              <ul class="secondary-menu"><li class="menu-791 active-trail first"><a href="http://unity3d.com/learn/tutorials" class="active-trail">Tutorials</a></li><li class="menu-399"><a href="http://unity3d.com/learn/documentation">Documentation</a></li><li class="menu-400"><a href="http://unity3d.com/learn/live-training">Live Training</a></li><li class="menu-743"><a href="http://unity3d.com/learn/resources" title="">Resources</a></li><li class="menu-478 last"><a href="http://unity3d.com/learn/premium-support" title="">Premium Support</a></li></ul>            </li>
+                                        <li><a href="http://unity3d.com/community">Community</a></li>
+                                        <li><a href="http://unity3d.com/asset-store">Asset Store</a></li>
+                                        <li><a href="http://unity3d.com/get-unity">Get Unity</a></li>
+                          </ul>
+                </div>
+    <div class="user">
+      <div class="content clear">
+                          <h2>Unity Account</h2>
+          <small class="mb15 cl">You need a Unity Account to shop in the Online and Asset Stores, participate in the Unity Community and manage your license portfolio.</small>
+                      <a href="http://unity3d.com/user/login?return=learn/tutorials/projects/roll-a-ball/set-up" class="blue-btn sbtn mr10">Login</a>
+                    <a href="https://id.unity.com/account/new" class="blue-btn sbtn">Create account</a>
+              </div>
+    </div>
+    <div class="lang clear">
+      <h2>Language</h2>
+      <div class="language-switcher">
+  <ul id="mobile-lang" class="languages">
+              <li><a href="http://unity3d.com/cn/learn/tutorials/projects/roll-a-ball/set-up" data-lang="cn" lang="zh-hans" hreflang="zh-hans">中文</a></li>
+                <li><a href="http://unity3d.com/jp/learn/tutorials/projects/roll-a-ball/set-up" data-lang="jp" lang="ja" hreflang="ja">日本語</a></li>
+                <li><a href="http://unity3d.com/kr/learn/tutorials/projects/roll-a-ball/set-up" data-lang="kr" lang="ko" hreflang="ko">한국어</a></li>
+                <li><a href="http://unity3d.com/pt/learn/tutorials/projects/roll-a-ball/set-up" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                <li><a href="http://unity3d.com/ru/learn/tutorials/projects/roll-a-ball/set-up" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                <li><a href="http://unity3d.com/es/learn/tutorials/projects/roll-a-ball/set-up" data-lang="es" lang="es" hreflang="es">Español</a></li>
+      </ul>
+</div>    </div>
+  </div>
+</nav>    
+      <section id="section-content" class="section section-content">
+  <header class="m-header clear">
+  <div class="m-logo"><a href="http://unity3d.com/"></a></div>
+  <div class="m-navbtn rel"><div class="lines"></div></div>
+  <div class="m-searchbtn btn"></div>
+  <div class="m-userbtn btn"></div>
+</header>
+
+<div class="background"></div>
+<div class="hero clear"></div>
+
+
+<section id="content" class="content-wrapper gw clear">
+      <div class="g12 breadcrumbs pt0 pb0">
+  <ul class="clear">
+  <li class="first"><a href="http://unity3d.com/learn/tutorials">Tutorials</a></li>
+
+      <li><a href="http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial">Roll-a-ball tutorial</a></li>
+  
+      <li>Setting up the Game</li>
+  </ul>  <div class="bb"></div>
+</div>
+
+<div class="g12 nest flex-wrap">
+
+<div class="g9 nest learn-content flex-column">
+  <div class="w100 clear">
+
+    <div class="g12 pb0">
+      <h1 class="mb5">
+        Setting up the Game              </h1>
+      <div class="clear mb20">
+                  <div class="left mr10"><p class="cl mb0">Checked with version: 5</p></div>
+          <div class="left mr10"><p class="cl mb0">-</p></div>
+                <div class="left mr10"><p class="cl mb0">Difficulty: Beginner</p></div>
+      </div>
+      <p>Creating a new project and setting up the basic game.</p>
+          </div>
+
+        <div class="g12">
+      <div class="ic clear">
+        <div class="tutorial-video rel">
+                    <img src="./Unity - Setting up the Game_files/0.jpg" class="poster">
+          <img src="./Unity - Setting up the Game_files/blank-1080.gif" alt="" class="blank bg-dg">
+          <div class="video-cover" data-video-id="W_fAidYRGzs">
+            <div class="play"></div>
+            <div class="info">
+              <h2 class="ellipsis">Setting up the Game</h2>
+              <p class="ellipsis">Beginner Roll-a-ball tutorial</p>
+            </div>
+          </div>
+          <div id="player"></div>
+        </div>
+                <div class="transcripts faq bg-lg clear">
+          <a class="expand">Transcripts</a>
+          <div class="clear"></div>
+          <div class="timeline bg-w clear hide">
+            <div class="item-list"><ul><li class="first"><div class="timecode rel clear mb5">
+  <a class="2" href="https://www.youtube.com/watch?t=2&amp;v=W_fAidYRGzs">00:02 - 00:04</a>
+  <p>Let's begin by creating a new project.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="4" href="https://www.youtube.com/watch?t=4&amp;v=W_fAidYRGzs">00:04 - 00:08</a>
+  <p>We can create a new project from File - New Project.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="9" href="https://www.youtube.com/watch?t=9&amp;v=W_fAidYRGzs">00:09 - 00:12</a>
+  <p>This will bring up the home screen.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="12" href="https://www.youtube.com/watch?t=12&amp;v=W_fAidYRGzs">00:12 - 00:15</a>
+  <p>I'm going to call the new project Roll a Ball.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="17" href="https://www.youtube.com/watch?t=17&amp;v=W_fAidYRGzs">00:17 - 00:19</a>
+  <p>The next thing we need to do is set the destination,</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="19" href="https://www.youtube.com/watch?t=19&amp;v=W_fAidYRGzs">00:19 - 00:21</a>
+  <p>or path to our new project.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="22" href="https://www.youtube.com/watch?t=22&amp;v=W_fAidYRGzs">00:22 - 00:25</a>
+  <p>I'm going to put this new project on my desktop.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="28" href="https://www.youtube.com/watch?t=28&amp;v=W_fAidYRGzs">00:28 - 00:30</a>
+  <p>At this point it's worth noting that we can</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="30" href="https://www.youtube.com/watch?t=30&amp;v=W_fAidYRGzs">00:30 - 00:32</a>
+  <p>have our new project use default settings</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="32" href="https://www.youtube.com/watch?t=32&amp;v=W_fAidYRGzs">00:32 - 00:35</a>
+  <p>for either a 2D project or a 3D project.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="36" href="https://www.youtube.com/watch?t=36&amp;v=W_fAidYRGzs">00:36 - 00:38</a>
+  <p>We will choose 3D.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="38" href="https://www.youtube.com/watch?t=38&amp;v=W_fAidYRGzs">00:38 - 00:41</a>
+  <p>And then I will click on Create Project</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="41" href="https://www.youtube.com/watch?t=41&amp;v=W_fAidYRGzs">00:41 - 00:42</a>
+  <p>to make a new project.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="43" href="https://www.youtube.com/watch?t=43&amp;v=W_fAidYRGzs">00:43 - 00:46</a>
+  <p>We now have our new project with a new empty scene.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="46" href="https://www.youtube.com/watch?t=46&amp;v=W_fAidYRGzs">00:46 - 00:48</a>
+  <p>Before creating anything in the new scene</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="48" href="https://www.youtube.com/watch?t=48&amp;v=W_fAidYRGzs">00:48 - 00:49</a>
+  <p>we need to save our scene.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="50" href="https://www.youtube.com/watch?t=50&amp;v=W_fAidYRGzs">00:50 - 00:54</a>
+  <p>We can save our scene by going to File - Save Scene</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="54" href="https://www.youtube.com/watch?t=54&amp;v=W_fAidYRGzs">00:54 - 00:56</a>
+  <p>or by using the keyboard shortcut.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="58" href="https://www.youtube.com/watch?t=58&amp;v=W_fAidYRGzs">00:58 - 01:01</a>
+  <p>I'm going to save this scene in the Assets directory</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="61" href="https://www.youtube.com/watch?t=61&amp;v=W_fAidYRGzs">01:01 - 01:04</a>
+  <p>in a new folder called _scenes.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="64" href="https://www.youtube.com/watch?t=64&amp;v=W_fAidYRGzs">01:04 - 01:07</a>
+  <p>The underscore is optional, I use it to sort this</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="67" href="https://www.youtube.com/watch?t=67&amp;v=W_fAidYRGzs">01:07 - 01:09</a>
+  <p>folder to the top of my project window.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="69" href="https://www.youtube.com/watch?t=69&amp;v=W_fAidYRGzs">01:09 - 01:12</a>
+  <p>Now I'm going to call the scene MiniGame.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="75" href="https://www.youtube.com/watch?t=75&amp;v=W_fAidYRGzs">01:15 - 01:17</a>
+  <p>We can now see in our Scenes folder</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="77" href="https://www.youtube.com/watch?t=77&amp;v=W_fAidYRGzs">01:17 - 01:19</a>
+  <p>the scene called MiniGame.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="80" href="https://www.youtube.com/watch?t=80&amp;v=W_fAidYRGzs">01:20 - 01:23</a>
+  <p>Let's create our game board, or play field.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="83" href="https://www.youtube.com/watch?t=83&amp;v=W_fAidYRGzs">01:23 - 01:26</a>
+  <p>To do this we will use a stock Unity plane.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="87" href="https://www.youtube.com/watch?t=87&amp;v=W_fAidYRGzs">01:27 - 01:28</a>
+  <p>We can create this plane from either</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="88" href="https://www.youtube.com/watch?t=88&amp;v=W_fAidYRGzs">01:28 - 01:31</a>
+  <p>Game Object - 3D Object - Plane.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="93" href="https://www.youtube.com/watch?t=93&amp;v=W_fAidYRGzs">01:33 - 01:37</a>
+  <p>Or from inside the Hierarchy view using the Create menu.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="98" href="https://www.youtube.com/watch?t=98&amp;v=W_fAidYRGzs">01:38 - 01:41</a>
+  <p>Rename this game object Ground.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="101" href="https://www.youtube.com/watch?t=101&amp;v=W_fAidYRGzs">01:41 - 01:43</a>
+  <p>We can do this by either selecting the game object</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="103" href="https://www.youtube.com/watch?t=103&amp;v=W_fAidYRGzs">01:43 - 01:45</a>
+  <p>and using the enter or return keys</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="105" href="https://www.youtube.com/watch?t=105&amp;v=W_fAidYRGzs">01:45 - 01:48</a>
+  <p>to allow editing, or by clicking on the</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="108" href="https://www.youtube.com/watch?t=108&amp;v=W_fAidYRGzs">01:48 - 01:50</a>
+  <p>game object twice, slowly.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="110" href="https://www.youtube.com/watch?t=110&amp;v=W_fAidYRGzs">01:50 - 01:52</a>
+  <p>Type in the new name or hit enter or return</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="112" href="https://www.youtube.com/watch?t=112&amp;v=W_fAidYRGzs">01:52 - 01:54</a>
+  <p>to confirm this change.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="115" href="https://www.youtube.com/watch?t=115&amp;v=W_fAidYRGzs">01:55 - 01:57</a>
+  <p>Reset the transform component using the context</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="117" href="https://www.youtube.com/watch?t=117&amp;v=W_fAidYRGzs">01:57 - 02:00</a>
+  <p>sensitive gear menu in the upper right.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="120" href="https://www.youtube.com/watch?t=120&amp;v=W_fAidYRGzs">02:00 - 02:02</a>
+  <p>This will place the game object at the location of</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="122" href="https://www.youtube.com/watch?t=122&amp;v=W_fAidYRGzs">02:02 - 02:05</a>
+  <p>(0, 0, 0) in our scene.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="125" href="https://www.youtube.com/watch?t=125&amp;v=W_fAidYRGzs">02:05 - 02:07</a>
+  <p>This point is known as the origin point</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="127" href="https://www.youtube.com/watch?t=127&amp;v=W_fAidYRGzs">02:07 - 02:09</a>
+  <p>of the world and this is where all of the</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="129" href="https://www.youtube.com/watch?t=129&amp;v=W_fAidYRGzs">02:09 - 02:12</a>
+  <p>coordinates in the scene are calculated from.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="132" href="https://www.youtube.com/watch?t=132&amp;v=W_fAidYRGzs">02:12 - 02:14</a>
+  <p>Now with the game object selected and the</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="134" href="https://www.youtube.com/watch?t=134&amp;v=W_fAidYRGzs">02:14 - 02:17</a>
+  <p>cursor over the Scene view type the F key, or choose</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="137" href="https://www.youtube.com/watch?t=137&amp;v=W_fAidYRGzs">02:17 - 02:20</a>
+  <p>Frame Selected from the Edit menu</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="140" href="https://www.youtube.com/watch?t=140&amp;v=W_fAidYRGzs">02:20 - 02:22</a>
+  <p>to see the entire game object in the Scene view.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="143" href="https://www.youtube.com/watch?t=143&amp;v=W_fAidYRGzs">02:23 - 02:25</a>
+  <p>Looking at our current scene,</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="145" href="https://www.youtube.com/watch?t=145&amp;v=W_fAidYRGzs">02:25 - 02:28</a>
+  <p>we can see grid lines indicating the plane at origin.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="149" href="https://www.youtube.com/watch?t=149&amp;v=W_fAidYRGzs">02:29 - 02:31</a>
+  <p>For the purposes of this project</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="151" href="https://www.youtube.com/watch?t=151&amp;v=W_fAidYRGzs">02:31 - 02:32</a>
+  <p>we will turn them off.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="152" href="https://www.youtube.com/watch?t=152&amp;v=W_fAidYRGzs">02:32 - 02:35</a>
+  <p>Select the Gizmos menu in the Scene view</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="155" href="https://www.youtube.com/watch?t=155&amp;v=W_fAidYRGzs">02:35 - 02:37</a>
+  <p>and deselect Show Grid.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="161" href="https://www.youtube.com/watch?t=161&amp;v=W_fAidYRGzs">02:41 - 02:44</a>
+  <p>We need to change the scale of the ground plane.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="164" href="https://www.youtube.com/watch?t=164&amp;v=W_fAidYRGzs">02:44 - 02:46</a>
+  <p>We can do this in a number of ways..</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="166" href="https://www.youtube.com/watch?t=166&amp;v=W_fAidYRGzs">02:46 - 02:48</a>
+  <p>We can use the Scale tool,</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="168" href="https://www.youtube.com/watch?t=168&amp;v=W_fAidYRGzs">02:48 - 02:51</a>
+  <p>simply grab the axis handle you want to change</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="171" href="https://www.youtube.com/watch?t=171&amp;v=W_fAidYRGzs">02:51 - 02:53</a>
+  <p>and drag the handle rescaling the plane.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="173" href="https://www.youtube.com/watch?t=173&amp;v=W_fAidYRGzs">02:53 - 02:55</a>
+  <p>We can click and drag on the title of</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="175" href="https://www.youtube.com/watch?t=175&amp;v=W_fAidYRGzs">02:55 - 02:57</a>
+  <p>the fields we want to change.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="178" href="https://www.youtube.com/watch?t=178&amp;v=W_fAidYRGzs">02:58 - 03:00</a>
+  <p>Or we can type a number directly in to the</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="180" href="https://www.youtube.com/watch?t=180&amp;v=W_fAidYRGzs">03:00 - 03:02</a>
+  <p>field we want to change.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="182" href="https://www.youtube.com/watch?t=182&amp;v=W_fAidYRGzs">03:02 - 03:04</a>
+  <p>You can tab between fields and hit enter or return</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="184" href="https://www.youtube.com/watch?t=184&amp;v=W_fAidYRGzs">03:04 - 03:06</a>
+  <p>to confirm your choice.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="187" href="https://www.youtube.com/watch?t=187&amp;v=W_fAidYRGzs">03:07 - 03:10</a>
+  <p>Now remember a plane has no volume</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="190" href="https://www.youtube.com/watch?t=190&amp;v=W_fAidYRGzs">03:10 - 03:12</a>
+  <p>and scale does not work on the Y axis.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="192" href="https://www.youtube.com/watch?t=192&amp;v=W_fAidYRGzs">03:12 - 03:15</a>
+  <p>There will be no change unless you go in to negative numbers.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="195" href="https://www.youtube.com/watch?t=195&amp;v=W_fAidYRGzs">03:15 - 03:18</a>
+  <p>In this case the plane, which is a single</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="198" href="https://www.youtube.com/watch?t=198&amp;v=W_fAidYRGzs">03:18 - 03:21</a>
+  <p>sided object will simply face the other direction.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="201" href="https://www.youtube.com/watch?t=201&amp;v=W_fAidYRGzs">03:21 - 03:23</a>
+  <p>If you place a plane in the scene and you can't see it</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="203" href="https://www.youtube.com/watch?t=203&amp;v=W_fAidYRGzs">03:23 - 03:26</a>
+  <p>check your orientation between the plane and camera</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="206" href="https://www.youtube.com/watch?t=206&amp;v=W_fAidYRGzs">03:26 - 03:28</a>
+  <p>and make sure that you have the correct values</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="208" href="https://www.youtube.com/watch?t=208&amp;v=W_fAidYRGzs">03:28 - 03:30</a>
+  <p>for the Y axis of scale.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="210" href="https://www.youtube.com/watch?t=210&amp;v=W_fAidYRGzs">03:30 - 03:33</a>
+  <p>This is usually the value of 1.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="214" href="https://www.youtube.com/watch?t=214&amp;v=W_fAidYRGzs">03:34 - 03:36</a>
+  <p>Let's create our player object.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="216" href="https://www.youtube.com/watch?t=216&amp;v=W_fAidYRGzs">03:36 - 03:38</a>
+  <p>In this assignment our player object</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="218" href="https://www.youtube.com/watch?t=218&amp;v=W_fAidYRGzs">03:38 - 03:40</a>
+  <p>will be a Unity sphere.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="220" href="https://www.youtube.com/watch?t=220&amp;v=W_fAidYRGzs">03:40 - 03:44</a>
+  <p>From the Hierarchy - Create menu select Sphere.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="226" href="https://www.youtube.com/watch?t=226&amp;v=W_fAidYRGzs">03:46 - 03:48</a>
+  <p>Rename the sphere Player.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="230" href="https://www.youtube.com/watch?t=230&amp;v=W_fAidYRGzs">03:50 - 03:52</a>
+  <p>Reset the transform to make sure it's a origin.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="233" href="https://www.youtube.com/watch?t=233&amp;v=W_fAidYRGzs">03:53 - 03:56</a>
+  <p>Select Edit - Frame Selected</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="237" href="https://www.youtube.com/watch?t=237&amp;v=W_fAidYRGzs">03:57 - 03:59</a>
+  <p>or use the F key while the cursor is</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="239" href="https://www.youtube.com/watch?t=239&amp;v=W_fAidYRGzs">03:59 - 04:01</a>
+  <p>over the Scene view to focus our Scene view</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="241" href="https://www.youtube.com/watch?t=241&amp;v=W_fAidYRGzs">04:01 - 04:03</a>
+  <p>camera on our game object.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="244" href="https://www.youtube.com/watch?t=244&amp;v=W_fAidYRGzs">04:04 - 04:06</a>
+  <p>See how the sphere is buried in the plane?</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="246" href="https://www.youtube.com/watch?t=246&amp;v=W_fAidYRGzs">04:06 - 04:08</a>
+  <p>This is because both game objects</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="248" href="https://www.youtube.com/watch?t=248&amp;v=W_fAidYRGzs">04:08 - 04:10</a>
+  <p>are in the exact same location in the scene,</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="250" href="https://www.youtube.com/watch?t=250&amp;v=W_fAidYRGzs">04:10 - 04:13</a>
+  <p>the origin point, or (0, 0, 0)</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="253" href="https://www.youtube.com/watch?t=253&amp;v=W_fAidYRGzs">04:13 - 04:15</a>
+  <p>on the X, Y and Z axis.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="255" href="https://www.youtube.com/watch?t=255&amp;v=W_fAidYRGzs">04:15 - 04:17</a>
+  <p>We need to move the player's sphere up</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="257" href="https://www.youtube.com/watch?t=257&amp;v=W_fAidYRGzs">04:17 - 04:19</a>
+  <p>until it rests on the plane.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="264" href="https://www.youtube.com/watch?t=264&amp;v=W_fAidYRGzs">04:24 - 04:27</a>
+  <p>All Unity primitive objects, cubes, spheres, capsules,</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="267" href="https://www.youtube.com/watch?t=267&amp;v=W_fAidYRGzs">04:27 - 04:30</a>
+  <p>have a standard size, they are either</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="270" href="https://www.youtube.com/watch?t=270&amp;v=W_fAidYRGzs">04:30 - 04:35</a>
+  <p>1 by 1 by 1 or 1 by 2 by 1 Unity units.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="275" href="https://www.youtube.com/watch?t=275&amp;v=W_fAidYRGzs">04:35 - 04:37</a>
+  <p>As such we simply lift the player object up</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="277" href="https://www.youtube.com/watch?t=277&amp;v=W_fAidYRGzs">04:37 - 04:39</a>
+  <p>by half a unit in the Y axis</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="279" href="https://www.youtube.com/watch?t=279&amp;v=W_fAidYRGzs">04:39 - 04:42</a>
+  <p>and we know it is laying perfectly on top of plane.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="284" href="https://www.youtube.com/watch?t=284&amp;v=W_fAidYRGzs">04:44 - 04:46</a>
+  <p>If we look in the Game view we can that the</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="286" href="https://www.youtube.com/watch?t=286&amp;v=W_fAidYRGzs">04:46 - 04:48</a>
+  <p>player game object is lit and it</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="288" href="https://www.youtube.com/watch?t=288&amp;v=W_fAidYRGzs">04:48 - 04:50</a>
+  <p>casts a shadow on the plane.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="291" href="https://www.youtube.com/watch?t=291&amp;v=W_fAidYRGzs">04:51 - 04:53</a>
+  <p>All new Unity scenes come with the</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="293" href="https://www.youtube.com/watch?t=293&amp;v=W_fAidYRGzs">04:53 - 04:55</a>
+  <p>default sky box and a directional light</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="295" href="https://www.youtube.com/watch?t=295&amp;v=W_fAidYRGzs">04:55 - 04:58</a>
+  <p>to represent the sun, so we don't need to worry</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="298" href="https://www.youtube.com/watch?t=298&amp;v=W_fAidYRGzs">04:58 - 05:00</a>
+  <p>about setting up any default lighting.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="301" href="https://www.youtube.com/watch?t=301&amp;v=W_fAidYRGzs">05:01 - 05:03</a>
+  <p>What could be improved however is the</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="303" href="https://www.youtube.com/watch?t=303&amp;v=W_fAidYRGzs">05:03 - 05:06</a>
+  <p>white player sphere on the white background.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="308" href="https://www.youtube.com/watch?t=308&amp;v=W_fAidYRGzs">05:08 - 05:10</a>
+  <p>Let's add some colour to our background</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="310" href="https://www.youtube.com/watch?t=310&amp;v=W_fAidYRGzs">05:10 - 05:14</a>
+  <p>so there is some contrast between the player and the play field.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="315" href="https://www.youtube.com/watch?t=315&amp;v=W_fAidYRGzs">05:15 - 05:17</a>
+  <p>To add colour or texture to a model</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="317" href="https://www.youtube.com/watch?t=317&amp;v=W_fAidYRGzs">05:17 - 05:19</a>
+  <p>we need to use a material.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="319" href="https://www.youtube.com/watch?t=319&amp;v=W_fAidYRGzs">05:19 - 05:22</a>
+  <p>We won't go in to the details of materials now,</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="322" href="https://www.youtube.com/watch?t=322&amp;v=W_fAidYRGzs">05:22 - 05:25</a>
+  <p>and we won't be using any textures.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="325" href="https://www.youtube.com/watch?t=325&amp;v=W_fAidYRGzs">05:25 - 05:27</a>
+  <p>We will simply use a standard material</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="327" href="https://www.youtube.com/watch?t=327&amp;v=W_fAidYRGzs">05:27 - 05:29</a>
+  <p>to add colour to the objects in our scene.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="330" href="https://www.youtube.com/watch?t=330&amp;v=W_fAidYRGzs">05:30 - 05:32</a>
+  <p>First let's create a new folder in our</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="332" href="https://www.youtube.com/watch?t=332&amp;v=W_fAidYRGzs">05:32 - 05:35</a>
+  <p>project to hold our materials.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="336" href="https://www.youtube.com/watch?t=336&amp;v=W_fAidYRGzs">05:36 - 05:38</a>
+  <p>We can do this by using the project's</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="338" href="https://www.youtube.com/watch?t=338&amp;v=W_fAidYRGzs">05:38 - 05:41</a>
+  <p>Create menu and selecting Folder.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="343" href="https://www.youtube.com/watch?t=343&amp;v=W_fAidYRGzs">05:43 - 05:46</a>
+  <p>Rename this folder Material.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="346" href="https://www.youtube.com/watch?t=346&amp;v=W_fAidYRGzs">05:46 - 05:48</a>
+  <p>With the Materials folder selected</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="348" href="https://www.youtube.com/watch?t=348&amp;v=W_fAidYRGzs">05:48 - 05:51</a>
+  <p>use the project's Create menu again</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="351" href="https://www.youtube.com/watch?t=351&amp;v=W_fAidYRGzs">05:51 - 05:53</a>
+  <p>and this time select Material.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="354" href="https://www.youtube.com/watch?t=354&amp;v=W_fAidYRGzs">05:54 - 05:58</a>
+  <p>Note how the material was created in the Materials folder.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="358" href="https://www.youtube.com/watch?t=358&amp;v=W_fAidYRGzs">05:58 - 06:00</a>
+  <p>This is because we had the folder selected</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="360" href="https://www.youtube.com/watch?t=360&amp;v=W_fAidYRGzs">06:00 - 06:03</a>
+  <p>when we chose to create our new material</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="363" href="https://www.youtube.com/watch?t=363&amp;v=W_fAidYRGzs">06:03 - 06:06</a>
+  <p>Rename this material Background.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="367" href="https://www.youtube.com/watch?t=367&amp;v=W_fAidYRGzs">06:07 - 06:10</a>
+  <p>Select the material and under Main Maps</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="370" href="https://www.youtube.com/watch?t=370&amp;v=W_fAidYRGzs">06:10 - 06:13</a>
+  <p>the first property is Albido.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="373" href="https://www.youtube.com/watch?t=373&amp;v=W_fAidYRGzs">06:13 - 06:15</a>
+  <p>Click on the Albido's colour field</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="375" href="https://www.youtube.com/watch?t=375&amp;v=W_fAidYRGzs">06:15 - 06:16</a>
+  <p>to open a colour picker.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="376" href="https://www.youtube.com/watch?t=376&amp;v=W_fAidYRGzs">06:16 - 06:20</a>
+  <p>Change the colour to a nice dark shade of blue.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="380" href="https://www.youtube.com/watch?t=380&amp;v=W_fAidYRGzs">06:20 - 06:26</a>
+  <p>In our case I will use the RGB values of 0, 32, 64.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="387" href="https://www.youtube.com/watch?t=387&amp;v=W_fAidYRGzs">06:27 - 06:29</a>
+  <p>For a preview of the material make sure </p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="389" href="https://www.youtube.com/watch?t=389&amp;v=W_fAidYRGzs">06:29 - 06:31</a>
+  <p>that the preview window is open.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="393" href="https://www.youtube.com/watch?t=393&amp;v=W_fAidYRGzs">06:33 - 06:35</a>
+  <p>To apply the texture to the plane,</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="395" href="https://www.youtube.com/watch?t=395&amp;v=W_fAidYRGzs">06:35 - 06:38</a>
+  <p>simply select the material in the project view</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="398" href="https://www.youtube.com/watch?t=398&amp;v=W_fAidYRGzs">06:38 - 06:40</a>
+  <p>and drag it on to the plane in the scene view.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="401" href="https://www.youtube.com/watch?t=401&amp;v=W_fAidYRGzs">06:41 - 06:44</a>
+  <p>Now the player stands out on the dark blue background.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="404" href="https://www.youtube.com/watch?t=404&amp;v=W_fAidYRGzs">06:44 - 06:46</a>
+  <p>I want to make one additional change that</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="406" href="https://www.youtube.com/watch?t=406&amp;v=W_fAidYRGzs">06:46 - 06:48</a>
+  <p>will help us later in this project.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="409" href="https://www.youtube.com/watch?t=409&amp;v=W_fAidYRGzs">06:49 - 06:51</a>
+  <p>I want to rotate the main directional light</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="411" href="https://www.youtube.com/watch?t=411&amp;v=W_fAidYRGzs">06:51 - 06:54</a>
+  <p>so that we have better lighting on our player.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="415" href="https://www.youtube.com/watch?t=415&amp;v=W_fAidYRGzs">06:55 - 06:58</a>
+  <p>Select the directional light and in the transform component</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="418" href="https://www.youtube.com/watch?t=418&amp;v=W_fAidYRGzs">06:58 - 07:03</a>
+  <p>change the Transform Rotation on the Y axis to 60.</p>
+</div></li><li><div class="timecode rel clear mb5">
+  <a class="424" href="https://www.youtube.com/watch?t=424&amp;v=W_fAidYRGzs">07:04 - 07:07</a>
+  <p>This will give better shape to our player sphere.</p>
+</div></li><li class="last"><div class="timecode rel clear mb5">
+  <a class="428" href="https://www.youtube.com/watch?t=428&amp;v=W_fAidYRGzs">07:08 - 07:11</a>
+  <p>Now we have a player game object and a background play field.</p>
+</div></li></ul></div>          </div>
+        </div>
+              </div>
+    </div>
+    
+          <div class="g12 pb0"></div>
+    
+    
+    <div class="g12 pt0">
+      <div class="pa15 bg-lg clear">
+        <div class="left pt10">
+          
+<script type="text/javascript" src="./Unity - Setting up the Game_files/plusone.js" gapi_processed="true"></script>
+<script type="text/javascript" src="./Unity - Setting up the Game_files/widgets.js"></script>
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_http" src="./Unity - Setting up the Game_files/xd_arbiter.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_https" src="./Unity - Setting up the Game_files/xd_arbiter(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f1a36f957c" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" src="./Unity - Setting up the Game_files/ping.html" style="display: none;"></iframe></div></div></div>
+<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=165297006942101"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+<div class="share-icons clear">
+  <div class="tweet left mr5" style="width:56px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Unity - Setting up the Game_files/tweet_button.6a78875565a912489e9aef879c881358.en.html" style="position: static; visibility: visible; width: 61px; height: 20px;" data-url="http://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up"></iframe></div>
+  <div class="googleplus left mr5"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1456425556845" name="I0_1456425556845" src="./Unity - Setting up the Game_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div></div>
+  <div class="facebook left mr5"><div class="fb-like fb_iframe_widget" data-send="false" data-layout="button_count" data-width="250" data-show-faces="false" data-font="arial" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=165297006942101&amp;container_width=0&amp;font=arial&amp;href=http%3A%2F%2Funity3d.com%2Flearn%2Ftutorials%2Fprojects%2Froll-a-ball%2Fset-up%3Fplaylist%3D17141&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=250"><span style="vertical-align: bottom; width: 81px; height: 20px;"><iframe name="f291b2d024" width="250px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Unity - Setting up the Game_files/like.html" style="border: none; visibility: visible; width: 81px; height: 20px;" class=""></iframe></span></div></div>
+  </div>        </div>
+        <div class="right">
+            <div class="icon tt left mr1" data-distance="-40|-30|top"><span class="prev"><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/introduction?playlist=17141"></a></span><div class="tip">Introduction to Roll-a-Ball</div></div>
+  <div class="icon tt right" data-distance="-40|-30|top"><span class="next"><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141"></a></span><div class="tip">Moving the Player</div></div>
+        </div>
+      </div>
+    </div>
+
+        <div class="g12 nest bottombar">
+      <div class="clear"></div><div class="g12">          <h3>Related tutorials</h3>
+          <ul class="l">
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor/interface-overview">Interface Overview</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor/the-scene-view">The Scene View</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor/the-game-view">The Game View</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor/the-hierarchy-and-parent-child-relationships">The Hierarchy and Parent-Child relationships</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor/project-panel-and-importing">The Project Panel and Importing</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor/the-inspector">The Inspector</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor/game-objects-and-components">Game Objects and Components</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/graphics/lights">Lights</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/graphics/materials">Materials</a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/models-and-materials">Models and Materials </a> <span class="doc-type cl">(Lesson)</span></li>
+                      <li><a href="http://unity3d.com/learn/tutorials/modules/beginner/5-tutorials/standard-shader">The Standard Shader</a> <span class="doc-type cl">(Lesson)</span></li>
+                    </ul>
+                
+      </div>
+          </div>
+    
+  </div>
+</div>
+
+<div class="g3 lesson-sidebar flex-column">
+  <div class="g12 pa0 bg-lg lessons-list">
+
+                          <div class="mb0 ic bg-ud">
+          <img src="./Unity - Setting up the Game_files/rollaball-thumb1.jpg" class="">
+                    <p class="mb0 pa15 pt10 pb10 avalonbold upper cw ellipsis">Roll-a-ball tutorial</p>
+        </div>
+                  <div class="bbw mb0 pa15">
+            <h4 class="mb0 avalonbold upper cd collapsed">Introduction</h4>
+          </div>
+          <ol class="compact" style="display: none;">
+                          <li><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/introduction?playlist=17141">Introduction to Roll-a-Ball</a></li>                      </ol>
+                  <div class="bbw mb0 pa15">
+            <h4 class="mb0 avalonbold upper cd collapsed expanded">1. Environment and Player</h4>
+          </div>
+          <ol class="compact">
+                          <li class="current">Setting up the Game</li>                          <li><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141">Moving the Player</a></li>                      </ol>
+                  <div class="bbw mb0 pa15">
+            <h4 class="mb0 avalonbold upper cd collapsed">2. Camera and Play Area</h4>
+          </div>
+          <ol class="compact" style="display: none;">
+                          <li><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141">Moving the Camera</a></li>                          <li><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/setting-up-the-play-area?playlist=17141">Setting up the Play Area</a></li>                      </ol>
+                  <div class="bbw mb0 pa15">
+            <h4 class="mb0 avalonbold upper cd collapsed">3. Collecting, Scoring and Building the game</h4>
+          </div>
+          <ol class="compact" style="display: none;">
+                          <li><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141">Creating Collectable Objects</a></li>                          <li><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141">Collecting the Pick Up Objects</a></li>                          <li><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/displaying-text?playlist=17141">Displaying the Score and Text</a></li>                          <li><a href="http://unity3d.com/learn/tutorials/projects/roll-a-ball/building?playlist=17141">Building the Game</a></li>                      </ol>
+                  
+  </div>
+</div>
+</div></section>
+
+<div class="fs" style="height: 371px;"></div>
+<footer class="clear">
+  <div class="primary rel clear">
+    <div class="wrap clear">
+      <div class="footer-shards">
+        <div class="light"></div>
+        <div class="colored"></div>
+        <div class="dark"></div>
+      </div>
+      <div class="g8 nest">
+        <div class="g12 links-lbl pb0 hide">
+          <h3>Quick links</h3>
+        </div>
+        <div class="g3 links">
+          <h3>Purchase</h3>
+          <p class="mb0"><a href="http://unity3d.com/get-unity">Unity Pro</a></p>
+                  <p class="mb0"><a href="https://store.unity3d.com/">Subscription</a></p>
+                  <p class="mb0"><a href="https://store.unity3d.com/products/support">Premium Support</a></p>
+          <p class="mb0"><a href="http://unity3d.com/asset-store">Asset Store</a></p>
+                  <p class="mb0"><a href="http://unity3d.com/contact/get-in-touch?type=sales">Contact sales</a></p>
+                </div>
+        <div class="g3 links">
+          <h3>Download</h3>
+          <p class="mb0"><a href="http://unity3d.com/get-unity">Unity</a></p>
+          <p class="mb0"><a href="http://unity3d.com/webplayer">Web Player</a></p>
+                  <p class="mb0"><a href="http://unity3d.com/unity/collaboration">Cache Server</a></p>
+          <p class="mb0"><a href="http://unity3d.com/public-relations/downloads">Press material</a></p>
+          <p class="mb0"><a href="http://unity3d.com/whitepapers">Whitepapers</a></p>
+                </div>
+        <div class="g3 links">
+          <h3>Resources</h3>
+                  <p class="mb0"><a href="http://unity3d.com/learn">Learn</a></p>
+          <p class="mb0"><a href="http://unity3d.com/community">Community</a></p>
+          <p class="mb0"><a href="http://unity3d.com/learn/documentation">Documentation</a></p>
+          <p class="mb0"><a href="http://unity3d.com/unity/qa">Unity QA</a></p>
+          <p class="mb0"><a href="https://everyplay.com/about">Everyplay</a></p>
+          <p class="mb0"><a href="http://unity3d.com/unity/faq">FAQ</a></p>
+          <p class="mb0"><a href="http://unity3d.com/unity/licenses">License comparison</a></p>
+        </div>
+        <div class="g3 links">
+          <h3>About Unity</h3>
+          <p class="mb0"><a href="http://unity3d.com/public-relations">Company facts</a></p>
+                  <p class="mb0"><a href="http://blogs.unity3d.com/">Blog</a></p>
+          <p class="mb0"><a href="http://unity3d.com/events">Events</a></p>
+        				
+                  <p class="mb0"><a href="http://unity3d.com/jobs">Jobs</a></p>
+								
+                  <p class="mb0"><a href="http://unity3d.com/public-relations">Press</a></p>
+          <p class="mb0"><a href="http://unity3d.com/contact">Contact</a></p>
+                </div>
+        <div class="g12 pt10 pb10 partners">
+          <h3>Partners</h3>
+          <div class="partner microsoft"><a href="http://unity3d.com/pages/windows"></a></div>
+          <div class="partner sony"><a href="http://www.sony.com/" target="_blank"></a></div>
+          <div class="partner qualcomm"><a href="http://unity3d.com/pages/qualcomm"></a></div>
+          <div class="partner samsung"><a href="http://developer.samsung.com/" target="_blank"></a></div>
+          <div class="partner nintendo"><a href="http://www.nintendo.com/" target="_blank"></a></div>
+          <div class="partner oculus"><a href="http://www.oculus.com/" target="_blank"></a></div>
+          <div class="partner intel"><a href="http://unity3d.com/pages/intel" target="_blank"></a></div>
+        </div>
+      </div>
+      <div class="g4 nest">
+        <div class="g12 newsletter pb0">
+          <form method="post" action="http://unity3d.com/newsletters/list" id="newsletter-signup" class="newsletter-signup rel">
+  <div class="fields clear">
+          <h3>Get Unity news</h3>
+        <div class="rel">
+      <div class="field rel clear">
+        <input type="email" name="email" id="email" value="" class="email mb15" placeholder="Enter your email here...">
+        <input type="submit" value="Sign up" class="blue-btn">
+      </div>
+      <div class="checkbox clear">
+        <input type="checkbox" id="agree">
+        <label for="agree">I agree to the <a href="http://unity3d.com/company/legal/privacy-policy" target="_blank">Unity Privacy Policy</a> and the processing and use of my information</label>
+      </div>
+      <div class="loading hide">
+        <div></div><div></div><div></div>
+      </div>
+      <div class="success hide">
+        <h3 class="mb5 cg">Nearly there...</h3>
+        <p>To start receiving news from Unity Technologies, click on the link we've sent to your e-mail account.</p>
+      </div>
+      <div class="failed hide">
+        <h3 class="mb5 cr">Oops...</h3>
+        <p>Something went wrong, please try again.</p>
+      </div>
+    </div>
+  </div>
+</form>          <div class="social pt10 clear">
+            <a href="http://www.facebook.com/unity3d" class="icon facebook" target="_blank">Facebook</a>
+            <a href="http://www.twitter.com/unity3d" class="icon twitter" target="_blank">Twitter</a>
+            <a href="https://plus.google.com/u/0/104568650392955941577/" class="icon googleplus" target="_blank">Google+</a>
+            <a href="https://www.linkedin.com/company/unity-technologies" class="icon linkedin" target="_blank">LinkedIn</a>
+            <a href="https://www.youtube.com/user/Unity3D" class="icon youtube" target="_blank">YouTube</a>
+          </div>
+        </div>
+        <div class="g10 lang pb0">
+          <h3>Language</h3>
+          <div class="language-switcher">
+  <ul id="mobile-lang" class="languages">
+              <li><a href="http://unity3d.com/cn/learn/tutorials/projects/roll-a-ball/set-up" data-lang="cn" lang="zh-hans" hreflang="zh-hans">中文</a></li>
+                <li><a href="http://unity3d.com/jp/learn/tutorials/projects/roll-a-ball/set-up" data-lang="jp" lang="ja" hreflang="ja">日本語</a></li>
+                <li><a href="http://unity3d.com/kr/learn/tutorials/projects/roll-a-ball/set-up" data-lang="kr" lang="ko" hreflang="ko">한국어</a></li>
+                <li><a href="http://unity3d.com/pt/learn/tutorials/projects/roll-a-ball/set-up" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                <li><a href="http://unity3d.com/ru/learn/tutorials/projects/roll-a-ball/set-up" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                <li><a href="http://unity3d.com/es/learn/tutorials/projects/roll-a-ball/set-up" data-lang="es" lang="es" hreflang="es">Español</a></li>
+      </ul>
+</div>        </div>
+      </div>
+      <div class="g8 pt0 copy">
+        <p>Copyright © 2016 Unity Technologies</p>
+        <ul>
+          <li><a href="http://unity3d.com/legal">Legal</a></li>
+          <li><a href="http://unity3d.com/legal/privacy-policy">Privacy Policy</a></li>
+          <li><a href="http://unity3d.com/legal/cookie-policy#cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer></section>    
+  
+        </div>      </div>
+  <div class="cookies-dialog">
+    <div class="wrap">
+      <div class="gray-btn right ml10 mb20">Got it</div>
+      <p class="cd mb0">We use cookies to ensure that we give you the best experience on our website. Click <a href="http://unity3d.com/company/legal/privacy-policy#cookies" class="cd">here</a> for more information.</p>
+    </div>
+  </div>
+
+
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" data-clipboard-ready="true" style="position: absolute; left: -9999px; top: -9999px; width: 15px; height: 15px; z-index: 9999;">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="http://unity3d.com/profiles/unity3d/themes/unity/resources/ZeroClipboard.swf?nocache=1456425556834">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="">         <embed src="http://unity3d.com/profiles/unity3d/themes/unity/resources/ZeroClipboard.swf?nocache=1456425556834" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="" scale="exactfit">                </object></div><script type="text/javascript" id="">var _elqQ=_elqQ||[];_elqQ.push(["elqSetSiteId","795651218"]);_elqQ.push(["elqUseFirstPartyCookie","eloqua-trackings.unity3d.com"]);_elqQ.push(["elqTrackPageView"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//img06.en25.com/i/elqCfg.min.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+
+<iframe name="oauth2relay841952600" id="oauth2relay841952600" src="./Unity - Setting up the Game_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 6px; display: none; top: 66px; position: absolute; left: 1531px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gstl_51 gssb_c" style="width: 2px; display: none; top: 3px; position: absolute; left: -1px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><script src="./Unity - Setting up the Game_files/saved_resource" type="text/javascript"></script><img src="./Unity - Setting up the Game_files/l" width="1" height="1" border="0" alt="" style="display: none;"><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"></iframe></body></html>
